@@ -1,0 +1,146 @@
+openapi: 3.0.3
+info:
+  title: Wordle API
+  version: 1.0.0
+  description: API para jugar Wordle, un juego de adivinanzas de palabras de 5 letras.
+servers:
+  - url: https://api.wordle.com/v1
+paths:
+  /game:
+    post:
+      summary: Comenzar un nuevo juego de Wordleå
+      operationId: startGame
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                difficulty:
+                  type: string
+                  enum: [easy, medium, hard]
+                  default: easy
+                  description: Nivel de dificultad del juego
+      responses:
+        '201':
+          description: Nuevo juego creado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  gameId:
+                    type: string
+                    description: ID único del juego
+        '400':
+          description: Solicitud incorrecta
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Descripción del error
+
+  /game/{gameId}/guess:
+    post:
+      summary: Realizar un intento de adivinanza en un juego de Wordle
+      operationId: makeGuess
+      parameters:
+        - name: gameId
+          in: path
+          required: true
+          description: ID único del juego
+          schema:
+            type: string
+        - name: guessWord
+          in: query
+          required: true
+          description: Palabra de 5 letras para adivinar
+          schema:
+            type: string
+            minLength: 5
+            maxLength: 5
+      responses:
+        '200':
+          description: Intento exitoso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    description: Resultado del intento (por ejemplo, "2 posición y letra correcta, 1 posición incorrecta y letra correcta, 0 letra no existe en la palabra")
+                  attemptsLeft:
+                    type: integer
+                    description: Número de intentos restantes
+                  isGameWon:
+                    type: boolean
+                    description: Indica si el juego ha sido ganado
+        '400':
+          description: Solicitud incorrecta
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Descripción del error
+
+  /game/{gameId}:
+    get:
+      summary: Obtener detalles de un juego de Wordle
+      operationId: getGameDetails
+      parameters:
+        - name: gameId
+          in: path
+          required: true
+          description: ID único del juego
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detalles del juego recuperados exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  gameId:
+                    type: string
+                    description: ID único del juego
+                  status:
+                    type: string
+                    enum: [0, 1, 2]
+                    description: Estado actual del juego -> 0(En progreso), 1(Victoria), 2(Derrota)
+                  attemptsLeft:
+                    type: integer
+                    description: Número de intentos restantes
+                  wordToGuess:
+                    type: string
+                    description: Palabra que se debe adivinar
+                  guesses:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        guessWord:
+                          type: string
+                          description: Palabra intentada
+                        result:
+                          type: string
+                          description: Resultado del intento
+        '404':
+          description: Juego no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Descripción del error
