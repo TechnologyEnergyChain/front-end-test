@@ -1,10 +1,10 @@
-export type Guess = {
+export interface Guess {
     result: string;
     attemptsLeft: number;
     isGameWon: boolean;
-};
+}
 
-export type GuessIntent = {
+export interface GuessIntent {
     gameId: string;
     guessWord: string;
-};
+}
