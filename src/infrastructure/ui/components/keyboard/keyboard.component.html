@@ -1,0 +1,5 @@
+<div class="keyboard">
+    @for (key of keys; track $index) {
+        <button mat-fab color="primary" (click)="onClick(key)">{{ key }}</button>
+    }
+</div>

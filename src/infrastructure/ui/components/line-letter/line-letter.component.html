@@ -1,0 +1,5 @@
+<form class="word">
+    @for (letter of word.letters; track $index) {
+        <app-letter [letter]="letter"></app-letter>
+    }
+</form>

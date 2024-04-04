@@ -1,0 +1,12 @@
+<nav>
+    <h1>{{ title }}</h1>
+    <mat-slide-toggle (click)="toggleTheme()"></mat-slide-toggle>
+    <div class="control">
+        <p class="attemps">
+            Attemps Left: <span>{{ attemptsLeft }}</span>
+        </p>
+        <p class="word">
+            Word: <span>{{ wordToGuess }}</span>
+        </p>
+    </div>
+</nav>

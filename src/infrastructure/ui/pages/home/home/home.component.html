@@ -1,0 +1,26 @@
+<main [ngClass]="themeSignal()">
+    <header>
+        <app-header [wordToGuess]="game.wordToGuess" [attemptsLeft]="game.attemptsLeft"></app-header>
+    </header>
+    <section>
+        @for (word of words; track $index) {
+            <div class="row" style="margin-bottom: 20px">
+                <app-line-letter [word]="word" [row]="$index"></app-line-letter>
+            </div>
+        }
+        @if (showError() !== '') {
+            <p class="error">{{ showError() }}</p>
+        }
+        <app-keyboard (keyClick)="keyClick($event)"></app-keyboard>
+        @if (showUserCommand() !== '') {
+            <p class="command">{{ showUserCommand() }}</p>
+        }
+        <div class="actions">
+            @if (isGameFinish()) {
+                <button class="action-button" (click)="tryAgain()">TRY AGAIN</button>
+            } @else {
+                <button class="action-button" (click)="sendGuess()" [disabled]="isDisabled()">GUESS</button>
+            }
+        </div>
+    </section>
+</main>

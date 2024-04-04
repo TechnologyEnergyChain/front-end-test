@@ -1,0 +1,14 @@
+.keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 490px;
+    margin: 0 auto;
+
+    .mat-mdc-button-base {
+        border-radius: 10px;
+        width: 3em;
+        height: 3em;
+        margin: 5px 5px;
+    }
+}

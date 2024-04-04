@@ -1,0 +1,27 @@
+.actions {
+    text-align: center;
+    margin: 2em;
+
+    .action-button {
+        border: 2px solid;
+        line-height: 1;
+        margin: 0.5em;
+        padding: 1em 2em;
+        cursor: pointer;
+    }
+}
+
+.command {
+    text-align: center;
+    font-size: large;
+    margin-top: 25px;
+    font-weight: bold;
+}
+
+.error {
+    text-align: center;
+    font-size: large;
+    margin-top: 25px;
+    font-weight: bold;
+    color: red;
+}
