@@ -4,7 +4,7 @@ La siguiente es una prueba para evaluar a los candidatos a desarrollador **Front
 ## INTRODUCCIÓN
 En este repositorio se encuentran los requisitos de un ejercicio práctico diseñado para evaluar las habilidades técnicas del candidato en relación con las funciones clave y responsabilidades necesarias en el ámbito de Desarrollo de Gaba Energía.
 
-#### Objetivos de la evaluación
+### Objetivos de la evaluación
 El propósito principal de esta evaluación es analizar los siguientes aspectos clave:
   + Capacidad creativa para abordar los requisitos planteados.
   + Calidad del código producido, incluyendo la estructura y la aplicación de buenas prácticas.
@@ -22,7 +22,8 @@ El propósito principal de esta evaluación es analizar los siguientes aspectos 
     * Generar un archivo comprimido (.zip o .rar) de su proyecto y remitirlo a dev-team@gabaenergia.com.
 
 ## EJERCICIO PRÁCTICO
-**Objetivo:** Crear una "Wordle" mockeando los servicios necesarios de la API(openapi.yaml) incluido en el repositorio. "Wordle" es un juego de adivinanzas de palabras en línea en el que los jugadores intentan adivinar una palabra secreta de cinco letras en un número limitado de intentos.
+### Objetivo
+El objetivo de la prueba será la creación de una "Wordle" que es un juego de adivinanzas de palabras en línea en el que los jugadores intentan adivinar una palabra secreta de cinco letras en un número limitado de intentos.
 
 Cada vez que haces un intento, tienes que escribir una palabra válida, y se te dirá cuáles de las letras introducidas están, cuáles no, y si están en el sitio donde les toca o no. Cuando hagas un intento verás los resultados de ese intento, y podrás volver a probar.
 
@@ -32,15 +33,60 @@ El usuario hace un primer intento con "AUREO".
 
 El resultado, tal y cómo indica el openapi seria {result: "10101", attempsLeft: 5, isGameWon: false}
 
-#### Requerimientos generales
+### Apartado técnico
+Como solemos trabajar con la metodología `contract-first`, se ha definido un contrato en OpenAPI que se puede encontrar en el fichero `wordle.yaml` para el mockeo de los repositorios http.
 
-La aplicación debe cumplir con los siguientes **requisitos funcionales:**
+Ten en cuenta que el uso de una correcta arquitectura y buenas prácticas de programación es muy importante para nosotros. :books:
 
-    - Definir 6 intentos para una palabra de 5 letras.
-    - No se permite introducir por duplicado la misma palabra.
+Si decides usar algún patrón de diseño o aplicar cualquier otra técnica, no olvides mencionarlo en la defensa de tu solución. :speaking_head:
 
-Además, como Extra Ball:
+### Definition of done
+Para las pruebas se asumirá que la palabra secreta es "SOLAR".
 
-    - Modo claro y modo oscuro.
-    - No se permiten palabras que no existen en la RAE (mock)
+#### Palabra incorrecta sin aciertos
+- Empezar una partida nueva
+- Introducir la palabra "MENTE" 
 
+✅ Debería devolver "00000" y decrementar el número de intentos en 1.
+
+#### Palabra duplicada
+- Empezar una partida nueva
+- Introducir la palabra "MENTE"
+- Volver a introducir la palabra "MENTE"
+
+❌ Debería mostrar algún error, ya que la palabra se ha repetido.
+
+#### Palabra con letras en lugar incorrecto
+- Empezar una partida nueva
+- Introducir la palabra "AUREO"
+
+✅ Debería devolver "10101" y decrementar el número de intentos en 1.
+
+#### Palabra con letras en lugar correcto (acierto parcial)
+- Empezar una partida nueva
+- Introducir la palabra "MOLAR"
+
+✅ Debería devolver "02222" y decrementar el número de intentos en 1.
+
+#### Palabra correcta
+- Empezar una partida nueva
+- Introducir la palabra "SOLAR"
+
+✅ Debería devolver "22222", mostrar un mensaje de enhorabuena y no dejar continuar la partida.
+
+## Requisitos
+### Requisitos básicos
+
+La aplicación debe cumplir con los siguientes **requisitos básicos:**
+- [ ]  Cada partida tendrá un máximo de 6 intentos.
+- [ ]  Cada palabra tendrá 5 letras.
+- [ ]  No se permite introducir por duplicado la misma palabra.
+
+> [!TIP]
+> Antes de pasar a los requisitos opcionales, asegúrese de tener el código de su solución como le gustaría. :eye_speech_bubble:
+
+### Requisitos opcionales
+Además, como requisitos **opcionales**:
+- [ ] Implementar modo claro y modo oscuro.
+- [ ] No se permiten palabras que no existen en la RAE (Integración con servicio externo mockeado).
+- [ ] Añadir un teclado virtual en la pantalla principal.
