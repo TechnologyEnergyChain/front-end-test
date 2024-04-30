@@ -36,9 +36,9 @@ El resultado, tal y cómo indica el openapi seria {result: "10101", attempsLeft:
 ### Apartado técnico
 Como solemos trabajar con la metodología `contract-first`, se ha definido un contrato en OpenAPI que se puede encontrar en el fichero `wordle.yaml` para el mockeo de los repositorios http.
 
-Ten en cuenta que el uso de una correcta arquitectura y buenas prácticas de programación es muy importante para nosotros.:books:
+Ten en cuenta que el uso de una correcta arquitectura y buenas prácticas de programación es muy importante para nosotros. :books:
 
-Si decides usar algún patrón de diseño o aplicar cualquier otra técnica, no olvides mencionarlo en la defensa de tu solución.:speaking_head:
+Si decides usar algún patrón de diseño o aplicar cualquier otra técnica, no olvides mencionarlo en la defensa de tu solución. :speaking_head:
 
 ### Definition of done
 Para las pruebas se asumirá que la palabra secreta es "SOLAR".
@@ -83,7 +83,7 @@ La aplicación debe cumplir con los siguientes **requisitos básicos:**
 - [ ]  No se permite introducir por duplicado la misma palabra.
 
 > [!TIP]
-> Antes de pasar a los requisitos opcionales, asegúrese de tener el código de su solución como le gustaría.:eye_speech_bubble:
+> Antes de pasar a los requisitos opcionales, asegúrese de tener el código de su solución como le gustaría. :eye_speech_bubble:
 
 ### Requisitos opcionales
 Además, como requisitos **opcionales**:
