@@ -1,0 +1,42 @@
+.letter__wrapper {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 5px;
+  cursor: pointer;
+  min-height: 50px;
+  min-width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.letter__wrapper.correct {
+  background-color: var(--green);
+  animation: scale 0.5s;
+}
+
+.letter__wrapper.incorrect {
+  background-color: var(--red);
+  animation: scale 0.5s;
+}
+
+.letter__wrapper.wrongPlace {
+  background-color: var(--yellow);
+  animation: scale 0.5s;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

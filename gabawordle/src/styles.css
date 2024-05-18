@@ -1,0 +1,45 @@
+@import 'simple-keyboard/build/css/index.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+
+}
+
+body.dark {
+  --background: #222831;
+  --green: #40a578;
+  --primary: #eee;
+  --red: #a93d3d;
+  --yellow: #997c2b;
+  --secondary: black;
+}
+
+body.light {
+  --background: #eee;
+  --green: #53eba7;
+  --primary: #5e5d5d;
+  --red: #fd9696;
+  --yellow: #f5cb59;
+  --secondary: #f2f2f2;
+}
+
+app-root {
+  z-index: 1;
+}
+app-toast,
+.toast-class {
+  z-index: 2;
+}

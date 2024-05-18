@@ -1,0 +1,13 @@
+<div class="board__wrapper">
+  <div class="board__header">
+    <h1 class="board__title">Gaba Wordle</h1>
+    @for (word of words; track word; ) {
+
+    <app-word [word]="word" [maxLength]="maxWordLength"></app-word>
+    }
+  </div>
+  <app-keyboard
+    (keyPress)="onVirtualBoardKeyPress($event)"
+    [usedLetters]="usedLetters"
+  ></app-keyboard>
+</div>
