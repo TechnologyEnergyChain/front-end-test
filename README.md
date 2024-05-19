@@ -8,24 +8,14 @@ Esta aplicación está dividida en dos partes: front-end y back-end. La parte de
 
 Para ejecutar la aplicación, sigue estos pasos:
 
-1. Instalar dependencias del back-end:
+1. Instalar dependencias:
 
 ```sh
-cd ./api
 npm install
 ```
 
-2. Instalar dependencias del front-end:
-
 ```sh
-cd ./gabawordle
-npm install
-```
-
-3. Instalar dependencias de la raíz:
-
-```sh
-npm install
+npm run install-deps
 ```
 
 ## Ejecución
@@ -46,11 +36,11 @@ Para ejecutar las pruebas de Cypress, usa el siguiente comando en la carpeta ./g
 ```sh
 npm run e2e
 ```
-____________________________________________________ 
 
-
+---
 
 ## Definition of done
+
 Solo se han testeado los casos de prueba básicos que se describen en `Definition of Done`.
 
 Si necesitas más detalles o tienes alguna pregunta, no dudes en contactarme.
