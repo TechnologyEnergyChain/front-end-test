@@ -1,0 +1,12 @@
+.board__wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    text-align: center;
+    text-transform: uppercase;
+}

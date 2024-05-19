@@ -1,0 +1,12 @@
+<div
+  [ngClass]="{
+    'letter__wrapper': true,
+    correct: letter.status === letterStatus.CORRECT,
+    incorrect: letter.status === letterStatus.WRONG,
+    wrongPlace: letter.status === letterStatus.WRONG_PLACE
+  }"
+>
+  @if(letter.letter !== ''){
+  <span class="letter"> {{ letter.letter }}</span>
+  }
+</div>

@@ -1,0 +1,184 @@
+{
+  "uuid": "71d9160e-886a-4561-b12b-b9c7fa4f7cf7",
+  "lastMigration": 19,
+  "name": "Wordle API",
+  "endpointPrefix": "v1",
+  "latency": 0,
+  "port": 4101,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "fd0701b4-ad44-4c62-b54c-e0978a342d73",
+      "documentation": "Comenzar un nuevo juego de Wordleå",
+      "method": "post",
+      "endpoint": "game",
+      "responses": [
+        {
+          "uuid": "e10760e3-21bb-4afd-92f0-6e87d029a58f",
+          "body": "{\n  \"gameId\": \"f0500bad-5ffe-449d-80ab-75994b3e36e9\"\n}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "Nuevo juego creado exitosamente",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "ede859a3-dc36-4856-b4f2-2dcee9ddc964",
+          "body": "{\n  \"error\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Solicitud incorrecta",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "4fba62b5-ced8-4041-a83f-fd3f4623a83c",
+      "documentation": "Realizar un intento de adivinanza en un juego de Wordle",
+      "method": "post",
+      "endpoint": "game/:gameId/guess",
+      "responses": [
+        {
+          "uuid": "3e83b96b-e6cd-4103-bba1-030a7e908fc2",
+          "body": "{\n  \"result\": \"\",\n  \"attemptsLeft\": {{faker 'datatype.number'}},\n  \"isGameWon\": {{faker 'datatype.boolean'}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Intento exitoso",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "fc19cda0-dac5-40c8-bba9-d710b37866e8",
+          "body": "{\n  \"error\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Solicitud incorrecta",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "32756490-6fe9-4045-a6c8-12545a9cc0f2",
+      "documentation": "Obtener detalles de un juego de Wordle",
+      "method": "get",
+      "endpoint": "game/:gameId",
+      "responses": [
+        {
+          "uuid": "1bd15db7-53e2-4af4-88f2-b24b7d4e9001",
+          "body": "{\n  \"gameId\": \"dasfadsf\",\n  \"status\": \"{{oneOf (array '0' '1' '2')}}\",\n  \"attemptsLeft\": {{faker 'datatype.number'}},\n  \"wordToGuess\": \"\",\n  \"guesses\": [\n    {\n      \"guessWord\": \"\",\n      \"result\": \"\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Detalles del juego recuperados exitosamente",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "a0395467-709a-42fa-92ff-4eef0507d593",
+          "body": "{\n  \"error\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Juego no encontrado",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ]
+}

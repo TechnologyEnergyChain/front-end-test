@@ -1,0 +1,31 @@
+.toast {
+  position: absolute;
+  top: 0;
+  right: 0rem;
+  margin: 2rem;
+  display: inline-flex;
+  min-width: 260px;
+  min-height: 70px;
+  max-height: 70px;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 6px solid black;
+  padding: 1.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--secondary);
+  background-color: var(--primary);
+}
+
+.toast.success-toast {
+  border-left: 6px solid var(--green);
+}
+
+.toast.warning-toast {
+  border-left: 6px solid var(--yellow);
+}
+
+.toast.danger-toast {
+  border-left: 6px solid var(--red);
+}

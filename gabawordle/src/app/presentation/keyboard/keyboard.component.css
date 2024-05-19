@@ -1,0 +1,29 @@
+.simple-keyboard {
+  width: 100%;
+}
+
+.simple-keyboard.myTheme1 {
+  background-color: var(--background);
+  transition: 0.2s;
+  border-radius: 0;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.hg-theme-default .hg-button{
+  color: var(--primary);
+  box-shadow:0 0 3px -1px var(--primary);
+  background-color: var(--secondary);
+  transition: 0.2s;
+}
+.hg-theme-default .hg-button.correct {
+  background: var(--green);
+}
+
+.hg-theme-default .hg-button.wrong {
+  background: var(--red);
+}
+
+.hg-theme-default .hg-button.wrongPlace {
+  background: var(--yellow);
+}

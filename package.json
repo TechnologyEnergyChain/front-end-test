@@ -1,0 +1,13 @@
+{
+  "name": "gabawordle",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"npm run start-angular\" \"npm run start-express\"",
+    "start-angular": "cd gabawordle && npm start",
+    "start-express": "cd api && npm start",
+    "install-deps": "concurrently \"cd gabawordle && npm install\" \"cd api && npm install\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
