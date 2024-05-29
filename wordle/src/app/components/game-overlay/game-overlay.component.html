@@ -1,0 +1,16 @@
+<div class="overlay" *ngIf="isOverlayVisible">
+    <div class="overlay-content">
+        <div *ngIf="showVictoryMessage">
+            <h2 class="game-message">You win!</h2>
+        </div>
+        <div *ngIf="showDefeatMessage">
+            <h2 class="game-message">Game Over</h2>
+        </div>
+        <h2>Start game</h2>
+        <div class="button-group">
+            <button class="button" role="button" (click)="selectDifficulty('easy')">Easy</button>
+            <button class="button" role="button" (click)="selectDifficulty('medium')">Medium</button>
+            <button class="button" role="button" (click)="selectDifficulty('hard')">Hard</button>
+        </div>
+    </div>
+</div>

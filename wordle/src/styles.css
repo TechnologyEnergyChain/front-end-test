@@ -1,0 +1,22 @@
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --input-background-color: #fff;
+    --button-background: #FCFCFD;
+    --button-text-color: #36395A;
+    --button-box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.theme-dark {
+    --background-color: #202124;
+    --text-color: #ffffff;
+    --input-background-color: #333;
+    --button-background: #1A1A1A;
+    --button-text-color: #FFFFFF;
+    --button-box-shadow: rgba(255, 255, 255, 0.4) 0 2px 4px, rgba(255, 255, 255, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}

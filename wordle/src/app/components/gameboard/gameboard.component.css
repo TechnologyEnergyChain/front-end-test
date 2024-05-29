@@ -1,0 +1,40 @@
+.game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background-color);
+}
+
+.cell {
+  display: inline-block;
+  margin: 5px;
+}
+
+input {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 18px;
+  background-color: var(--input-background-color);
+  color: var(--text-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.grey-cell {
+  background-color: grey;
+}
+
+.yellow-cell {
+  background-color: #d7d710;
+}
+
+.green-cell {
+  background-color: green;
+}
+
+.white-cell {
+  background-color: white;
+}
