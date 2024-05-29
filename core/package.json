@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "msw": "^2.3.0",
+    "vitest": "^1.6.0"
+  }
+}

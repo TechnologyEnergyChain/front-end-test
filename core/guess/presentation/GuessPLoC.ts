@@ -13,7 +13,6 @@ export class GuessPLoC extends Ploc<Guess> {
     }
 
     async submit(gameId: GameId = '') {
-
         if (!isGameIdDefined(gameId)) {
             throw GameIdIsNotDefinedException
         }

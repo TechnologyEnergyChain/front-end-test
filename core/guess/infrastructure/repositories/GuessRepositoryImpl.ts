@@ -15,6 +15,7 @@ export class GuessRepositoryImpl implements GuessRepository {
 
     async submitGuess(gameId: GameId, guessWord: string): Promise<Guess> {
         const data: GuessDto = await this.apiClient.post<GuessDto>({url: `/game/${gameId}/guess`, params: {guessWord}})
+
         return this.mapper.toDomain(data)
     }
 }
