@@ -1,7 +1,7 @@
 import {Command} from "../../../common/domain/Command";
-import {GuessRepository} from "../GuessRepository";
-import {GameId} from "../../../game/domain/GameId";
-import {Guess} from "../GuessModel";
+import {GuessRepository} from "../repositories/GuessRepository";
+import {GameId} from "../../../game/domain/entities/GameId";
+import {Guess} from "../entities/GuessModel";
 
 
 export class SubmitGuessUseCase implements Command {

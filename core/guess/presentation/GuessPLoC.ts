@@ -1,7 +1,9 @@
 import {Ploc} from "../../common/presentation/Ploc";
-import {Guess} from "../domain/GuessModel";
-import {SubmitGuessUseCase} from "../domain/actions/SubmitGuessUseCase";
-import {GameId} from "../../game/domain/GameId";
+import {Guess} from "../domain/entities/GuessModel";
+import {SubmitGuessUseCase} from "../domain/application/SubmitGuessUseCase";
+import {GameId, GameIdIsNotDefinedException, isGameIdDefined} from "../../game/domain/entities/GameId";
+import {normalizeWord} from "../../common/helpers/normalizeWord";
+import {UnexpectedException} from "../../common/domain/DataException";
 
 export class GuessPLoC extends Ploc<Guess> {
     constructor(
@@ -10,22 +12,27 @@ export class GuessPLoC extends Ploc<Guess> {
         super()
     }
 
-    async submit(gameId: GameId) {
-        if(!this.state?.word) {
-            throw new Error('🚨 The word id is not defined.')
+    async submit(gameId: GameId = '') {
+
+        if (!isGameIdDefined(gameId)) {
+            throw GameIdIsNotDefinedException
         }
-        const data: Guess = await this.submitGuessUseCase.execute({gameId, word: this.state.word})
-        this.update(data)
+
+        this.state.ensureGuessIsValid()
+
+        try {
+            await this.submitGuessUseCase.execute({gameId, word: this.state.word ?? ''})
+            this.update(new Guess({}))
+        } catch (e) {
+            throw UnexpectedException()
+        }
     }
 
     set updateWord(word: string) {
         this.update(new Guess({
-            ...this.state ?? {},
-            word: this.normalize(word)
+            ...(this.state ?? {}),
+            word: normalizeWord(word)
         }))
     }
 
-    private normalize (word:string) {
-        return word.toLowerCase()
-    }
 }

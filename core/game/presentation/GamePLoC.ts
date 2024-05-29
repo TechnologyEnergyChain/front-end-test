@@ -1,8 +1,9 @@
 import {Ploc} from "../../common/presentation/Ploc";
-import {Game} from "../domain/GameModel";
-import {StartGameUseCase} from "../domain/actions/StartGameUseCase";
-import {GetGameUseCase} from "../domain/actions/GetGameUseCase";
-import {GameId} from "../domain/GameId";
+import {Game} from "../domain/entities/GameModel";
+import {StartGameUseCase} from "../domain/application/StartGameUseCase";
+import {GetGameUseCase} from "../domain/application/GetGameUseCase";
+import {GameId} from "../domain/entities/GameId";
+import {UnexpectedException} from "../../common/domain/DataException";
 
 export class GamePLoC extends Ploc<Game> {
     constructor(
@@ -13,16 +14,21 @@ export class GamePLoC extends Ploc<Game> {
     }
 
     async start() {
-        const id:GameId = await this.startGameUseCase.execute()
-        this.update(new Game({...this.state ?? {}, id}))
+        try {
+            const id: GameId = await this.startGameUseCase.execute()
+            this.update(new Game({...this.state ?? {}, id}))
+        } catch (e) {
+            throw UnexpectedException()
+        }
     }
 
     async getGame() {
-        if(!this.state?.id) {
-            throw new Error('🚨 The game id is not defined.')
+        this.state?.ensureGameIsValid()
+        try {
+            const game: Game = await this.getGameUseCase.execute(this.state.id)
+            this.update(game)
+        } catch (e) {
+            throw UnexpectedException()
         }
-
-        const game: Game = await this.getGameUseCase.execute(this.state.id)
-        this.update(game)
     }
 }

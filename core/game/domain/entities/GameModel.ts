@@ -1,6 +1,6 @@
-import {GameId} from "./GameId";
+import {GameId, GameIdIsNotDefinedException, isGameIdDefined} from "./GameId";
 import {GameStatus} from "./GameStatus";
-import {Guess} from "../../guess/domain/GuessModel";
+import {Guess} from "../../../guess/domain/entities/GuessModel";
 
 
 export interface GameModel {
@@ -24,6 +24,12 @@ export class Game implements GameModel {
         this.attempts = attempts
         this.wordToGuess = wordToGuess
         this.guesses = guesses ?? []
+    }
+
+    ensureGameIsValid() {
+        if (!isGameIdDefined(this.id)) {
+            throw GameIdIsNotDefinedException()
+        }
     }
 
 }

@@ -1,3 +1,5 @@
+import {Game} from "../../game/domain/entities/GameModel";
+
 type Listener<S> = (state: S) => void
 
 interface Observer {
@@ -15,8 +17,8 @@ export abstract class Ploc<S> implements Observer {
     protected constructor(private internalState?: S) {
     }
 
-    public get state(): S {
-        return this.internalState ?? {} as S
+    get state(): S {
+        return (this.internalState ?? {}) as S
     }
 
     update(state: S) {

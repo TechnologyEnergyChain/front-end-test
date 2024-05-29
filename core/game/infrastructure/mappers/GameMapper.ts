@@ -1,7 +1,8 @@
-import {Mapper} from "../../common/infrastructure/Mapper";
-import {Game} from "../domain/GameModel";
-import {GameDto} from "./GameDto";
-import {GuessMapper} from "../../guess/infrastructure/GuessMapper";
+import {Mapper} from "../../../common/infrastructure/Mapper";
+import {Game} from "../../domain/entities/GameModel";
+import {GameDto} from "../dtos/GameDto";
+import {GuessMapper} from "../../../guess/infrastructure/mappers/GuessMapper";
+import {normalizeWord} from "../../../common/helpers/normalizeWord";
 
 export class GameMapper implements Mapper<Game, GameDto> {
     constructor(private readonly guessMapper: GuessMapper) {
@@ -18,7 +19,7 @@ export class GameMapper implements Mapper<Game, GameDto> {
             id,
             status: 'string' === typeof status ? parseInt(status) : status,
             attempts,
-            wordToGuess,
+            wordToGuess: normalizeWord(wordToGuess),
             guesses: guesses.map((guess) => (this.guessMapper.toDomain(guess)))
         });
     }
