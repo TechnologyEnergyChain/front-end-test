@@ -1,0 +1,7 @@
+<div class="game-board">
+  <div *ngFor="let row of board; let i = index" class="row">
+    <div *ngFor="let letter of row; let j = index" class="cell">
+      <input type="text" [id]="'cell-' + i + '-' + j" [value]="letter" readonly>
+    </div>
+  </div>
+</div>

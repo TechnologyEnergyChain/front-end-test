@@ -90,3 +90,17 @@ Además, como requisitos **opcionales**:
 - [ ] Implementar modo claro y modo oscuro.
 - [ ] No se permiten palabras que no existen en la RAE (Integración con servicio externo mockeado).
 - [ ] Añadir un teclado virtual en la pantalla principal.
+
+## Observaciones
+
+### Servidor de desarrollo
+
+Para probar el código en el servidor de desarrollo, ejecutar `ng serve` y navegar a `http://localhost:4200/`.
+
+### Pruebas
+
+Usar el comando `ng test` para ejecutar todos los test.
+
+## API Mocker
+
+Mediante el comando `open-api-mocker -s openapi.yaml -w` se ejecuta un servidor mock que emulará las respuestas de la API definida en el contrato.

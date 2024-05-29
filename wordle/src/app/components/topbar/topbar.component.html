@@ -1,0 +1,12 @@
+<div class="top-bar">
+  <div class="left-icons">
+    <button class="theme-icon" (click)="toggleDarkMode()">
+      <i class="fas" [ngClass]="{ 'fa-moon': !isDarkModeEnabled(), 'fa-sun': isDarkModeEnabled() }"></i>
+    </button>
+  </div>
+  <div class="title-container">
+    <h1>Wordle</h1>
+  </div>
+  <div class="right-icons" >
+  </div>
+</div>
