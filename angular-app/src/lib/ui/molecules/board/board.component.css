@@ -1,0 +1,9 @@
+ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: min-content;
+  margin: auto;
+  list-style: none;
+  gap: 16px 4px;
+  padding: 0;
+}

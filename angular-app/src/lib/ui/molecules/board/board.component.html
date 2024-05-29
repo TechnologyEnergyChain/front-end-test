@@ -1,0 +1,9 @@
+<ul class="m-board">
+  @for (_ of ROWS_ARR; let row = $index; track row) {
+    @for (_ of COLUMNS_ARR; let column = $index; track column) {
+      <a-tile [result]="getResult(row,column)"
+              [letter]="getLetter(row, column)"/>
+
+    }
+  }
+</ul>
