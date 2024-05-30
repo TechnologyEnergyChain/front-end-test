@@ -1,5 +1,5 @@
 export abstract class Factory<T> {
-    data: any
+    // data: any
 
     abstract create(extra?: {}): T
 

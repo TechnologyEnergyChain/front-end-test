@@ -15,6 +15,7 @@ describe('Tile Component', () => {
     expect(wrapper).toBeTruthy()
   });
 
+
   it('should display the letter "A" and contain the class has-letter', () => {
     const fixture = TestBed.createComponent(TileComponent)
     const wrapper = fixture.componentInstance

@@ -4,9 +4,14 @@ import {UseGameStore} from "@lib/store/UseGameStore";
 import {DependencyLocator} from "@lib/dependency-injection/DependencyLocator";
 import {UseGuessStore} from "@lib/store/UseGuessStore";
 import {GuessResult} from "@core/guess/domain/entities/GuessResult";
+import {GameModelFactory} from "@core/test/factories/game/GameModelFactory";
+import {GuessModelFactory} from "@core/test/factories/guess/GuesModelFactory";
+import {Game} from "@core/game/domain/entities/GameModel";
+
 
 describe('BoardComponent', () => {
   let useGameStore: UseGameStore;
+  let fakeState: Game
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -20,6 +25,7 @@ describe('BoardComponent', () => {
       imports: [BoardComponent],
     }).compileComponents();
     useGameStore = TestBed.inject(UseGameStore);
+    fakeState = new GameModelFactory().create({guesses: new GuessModelFactory().times(3, {result: '10200'})})
   });
 
   it('should create the component', () => {
@@ -28,20 +34,21 @@ describe('BoardComponent', () => {
     expect(wrapper).toBeTruthy()
   });
 
-  it('should return the letter "u"', async () => {
+  it('getLetter should return the letter in position [0, 1]', async () => {
     const fixture = TestBed.createComponent(BoardComponent)
     const wrapper = fixture.componentInstance
-    await useGameStore.ploc.start()
-    await useGameStore.ploc.getGame()
-    const letter = wrapper.getLetter(0, 1)
-    expect(letter).toEqual('u')
+    useGameStore.ploc.update(fakeState)
+
+    const letter = useGameStore.state?.guesses?.[0]?.word?.split('')[1]
+    const result = wrapper.getLetter(0, 1)
+    expect(result).toEqual(letter)
   });
 
   it('should return the result "invalid"', async () => {
     const fixture = TestBed.createComponent(BoardComponent)
     const wrapper = fixture.componentInstance
-    await useGameStore.ploc.start()
-    await useGameStore.ploc.getGame()
+    useGameStore.ploc.update(fakeState)
+
     const result = wrapper.getResult(1, 1)
     expect(result).toEqual(GuessResult.INVALID)
   });
@@ -49,8 +56,7 @@ describe('BoardComponent', () => {
   it('should return the result "invalid place"', async () => {
     const fixture = TestBed.createComponent(BoardComponent)
     const wrapper = fixture.componentInstance
-    await useGameStore.ploc.start()
-    await useGameStore.ploc.getGame()
+    useGameStore.ploc.update(fakeState)
     const result = wrapper.getResult(0, 0)
     expect(result).toEqual(GuessResult.INVALID_PLACE)
   });
@@ -58,9 +64,8 @@ describe('BoardComponent', () => {
   it('should return the result "valid"', async () => {
     const fixture = TestBed.createComponent(BoardComponent)
     const wrapper = fixture.componentInstance
-    await useGameStore.ploc.start()
-    await useGameStore.ploc.getGame()
-    const result = wrapper.getResult(2, 1)
+    useGameStore.ploc.update(fakeState)
+    const result = wrapper.getResult(2, 2)
     expect(result).toEqual(GuessResult.VALID)
   });
 

@@ -22,7 +22,7 @@ describe('GuessRepositoryImpl', () => {
         const fakeDto = new GuessDtoFactory().create()
         const mappedData = mapper.toDomain(fakeDto)
 
-        vi.spyOn(apiClient, 'post').mockResolvedValue(fakeDto);
+        vi.spyOn(apiClient, 'post').mockResolvedValue({status: 200, data: fakeDto});
         const result = await guessRepository.submitGuess(fakeUUID(), mappedData.word);
         expect(result).toEqual(mapper.toDomain(fakeDto));
     })

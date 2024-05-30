@@ -1,14 +1,16 @@
 import {Factory} from "../Factory";
 import {Game} from "../../../game/domain/entities/GameModel";
 import {GameStatus} from "../../../game/domain/entities/GameStatus";
-import {GameBoard} from "../../../game/domain/entities/GameBoard";
+import {fakeUUID} from "../helpers/fakeUUID";
+import {fakeAttempts} from "../helpers/fakeAttempts";
+import {fakeGuessWord} from "../helpers/fakeGuessWord";
 
 export class GameModelFactory extends Factory<Game> {
     data = {
-        id: 'ramdomId',
+        id: fakeUUID(),
         status: GameStatus.IN_PROGRESS,
-        attempts: GameBoard.ROWS,
-        wordToGuess: 'solar',
+        attempts: fakeAttempts(),
+        wordToGuess: fakeGuessWord(),
         guesses: []
     }
 

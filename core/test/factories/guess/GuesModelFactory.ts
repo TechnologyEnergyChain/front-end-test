@@ -7,9 +7,9 @@ import {fakeGuessWord} from "../helpers/fakeGuessWord";
 
 export class GuessModelFactory extends Factory<Guess> {
 
-    private data = {
+    data = {
         attempts: fakeAttempts(),
-        gameStatus: GameStatus.InProgress,
+        gameStatus: GameStatus.IN_PROGRESS,
         result: fakeResult(),
         word: fakeGuessWord()
     }

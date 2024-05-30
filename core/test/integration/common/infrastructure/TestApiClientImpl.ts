@@ -1,29 +1,40 @@
 import {ApiClient} from "../../../../common/infrastructure/ApiClient";
+import {ApiResponse} from "../../../../common/domain/ApiResponse";
 
 export class TestApiClientImpl implements ApiClient {
-    baseUrl = 'http://test-mock/v1';
 
-
-    async get<T>({url, params}: { url: string; params?: any }): Promise<T> {
-        const URL = createUrlWithParams(`${this.baseUrl}${url}`, params)
-        return await (await fetch(URL)).json()
+    protected constructor(readonly baseUrl: string = 'http://test-mock/v1') {
     }
 
-    async delete<T>({url, params}: { url: string; params?: any }): Promise<T> {
+    delete<T>({url, params}: { url: string; params?: any }): Promise<ApiResponse<T>> {
         const URL = createUrlWithParams(`${this.baseUrl}${url}`, params)
-        return await (await fetch(URL, {method: 'DELETE'})).json()
+        return doFetch(URL, {method: 'DELETE'})
     }
 
-    async post<T>({url, params, payload}: { url: string; params?: any; payload?: any }): Promise<T> {
+    get<T>({url, params}: { url: string; params?: any }): Promise<ApiResponse<T>> {
         const URL = createUrlWithParams(`${this.baseUrl}${url}`, params)
-        return await (await fetch(URL, {method: 'POST', body: payload})).json()
+        return doFetch(URL)
     }
 
-    async update<T>({url, params, payload}: { url: string; params?: any; payload?: any }): Promise<T> {
+    post<T>({url, params, payload}: { url: string; params?: any; payload?: any }): Promise<ApiResponse<T>> {
         const URL = createUrlWithParams(`${this.baseUrl}${url}`, params)
-        return await (await fetch(URL, {method: 'PUT', body: payload})).json()
+        return doFetch(URL, {method: 'POST', body: payload})
     }
 
+    update<T>({url, params, payload}: { url: string; params?: any; payload?: any }): Promise<ApiResponse<T>> {
+        const URL = createUrlWithParams(`${this.baseUrl}${url}`, params)
+        return doFetch(URL, {method: 'PUT', body: payload})
+    }
+
+}
+
+async function doFetch<T>(url: string, options = {}): Promise<ApiResponse<T>> {
+    const response = await fetch(url, options)
+    const data = await response.json()
+    return {
+        status: response.status,
+        data
+    }
 }
 
 function createUrlWithParams(url: string, params?: any) {
@@ -36,3 +47,4 @@ function createUrlWithParams(url: string, params?: any) {
     })
     return newUrl.toString()
 }
+

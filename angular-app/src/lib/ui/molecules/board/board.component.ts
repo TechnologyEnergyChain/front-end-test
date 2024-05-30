@@ -31,12 +31,13 @@ export class BoardComponent implements OnDestroy{
   }
 
   getResult(row: number, column: number): GuessResult | undefined {
+    let resultNumber
     if (this.gameStore.state?.guesses?.[row]?.result) {
-      const resultNumber = this.gameStore.state?.guesses?.[row]?.result?.split('')[column]
+      resultNumber = this.gameStore.state?.guesses?.[row]?.result?.split('')[column]
       return resultNumber ? parseInt(resultNumber) : undefined
     }
     if (row === this.gameStore.state?.attempts) {
-      const resultNumber = this.guessStore.state?.result?.split('')[column]
+       resultNumber = this.guessStore.state?.result?.split('')[column]
       return resultNumber ? parseInt(resultNumber) : undefined
     }
     return
