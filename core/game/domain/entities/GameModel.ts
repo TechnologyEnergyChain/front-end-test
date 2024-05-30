@@ -1,6 +1,7 @@
 import {GameId, GameIdIsNotDefinedException, isGameIdDefined} from "./GameId";
 import {GameStatus} from "./GameStatus";
 import {Guess} from "../../../guess/domain/entities/GuessModel";
+import {GameGuesses, GameGuessesWordUsedException, isWordOnGuessList} from "./GameGuesses";
 
 
 export interface GameModel {
@@ -14,7 +15,7 @@ export interface GameModel {
 export class Game implements GameModel {
     id: GameId;
     attempts?: number;
-    guesses?: Guess[];
+    guesses?: GameGuesses;
     status?: GameStatus;
     wordToGuess?: string;
 
@@ -32,5 +33,10 @@ export class Game implements GameModel {
         }
     }
 
+    ensureWordHasNotBeenUsed(word: string) {
+        if (isWordOnGuessList(word, this.guesses)) {
+            throw GameGuessesWordUsedException(word)
+        }
+    }
 }
 

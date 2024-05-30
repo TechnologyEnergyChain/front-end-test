@@ -1,9 +1,7 @@
 import {Component, HostListener} from "@angular/core";
 import {UseGuessStore} from "@lib/store/UseGuessStore";
-import {GameBoard} from "@core/game/domain/entities/GameBoard";
 import {UseGameStore} from "@lib/store/UseGameStore";
-import {WORD_LENGTH} from "@core/guess/domain/entities/GuessWord";
-import {DataException} from "@core/common/domain/DataException";
+import {VALID_CHARACTERS, WORD_LENGTH} from "@core/guess/domain/entities/GuessWord";
 
 @Component({
   standalone: true,
@@ -30,17 +28,16 @@ export class SetupKeyboard {
     }
     if (key === 'Enter') {
       try {
-        await this.guessStore.ploc.submit(this.gameStore.state?.id)
+        await this.guessStore.ploc.submit()
         await this.gameStore.ploc.getGame()
         return
       } catch (e) {
-        console.log((<DataException>e).kind)
-        console.log((<DataException>e).error)
+        // TODO: Show alert to user
+        throw e
       }
 
     }
-    const regex = /^[a-zA-Z]$/;
-    if (regex.test(key)) {
+    if (VALID_CHARACTERS.test(key)) {
       if (WORD_LENGTH <= (this.guessStore?.state?.word?.length ?? 0)) {
         return;
       }

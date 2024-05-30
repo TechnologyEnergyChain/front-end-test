@@ -2,7 +2,7 @@ import {afterAll, afterEach, beforeAll, beforeEach, describe, expect, test} from
 import {GuessPLoC} from "../../../../guess/presentation/GuessPLoC";
 import {GuessMapper} from "../../../../guess/infrastructure/mappers/GuessMapper";
 import {GuessRepositoryImpl} from "../../../../guess/infrastructure/repositories/GuessRepositoryImpl";
-import {SubmitGuessUseCase} from "../../../../guess/domain/application/SubmitGuessUseCase";
+import {SubmitGuessUseCase} from "../../../../guess/domain/actions/SubmitGuessUseCase";
 import {TestApiClientImpl} from "../../common/infrastructure/TestApiClientImpl";
 
 import {fakeUUID} from "../../../factories/helpers/fakeUUID";

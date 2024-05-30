@@ -1,9 +1,18 @@
+import {DataException} from "../../../common/domain/DataException";
+
 export type GameId = string
 
-export function isGameIdDefined (id:GameId) {
+export enum GameIdException {
+    UNDEFINED = 'GuessWordIsNotValidException'
+}
+
+export function isGameIdDefined(id: GameId) {
     return !!id
 }
 
-export function GameIdIsNotDefinedException() {
-    return new Error('🚨 The game isn\'t started.')
+export function GameIdIsNotDefinedException(): DataException {
+    return {
+        kind: GameIdException.UNDEFINED,
+        error: Error('🚨 The game isn\'t started.')
+    }
 }

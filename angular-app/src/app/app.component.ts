@@ -3,7 +3,7 @@ import {RouterOutlet} from '@angular/router';
 import {TileComponent} from "@lib/ui/atoms/tile/tile.component";
 import {BoardComponent} from "@lib/ui/molecules/board/board.component";
 import {UseGameStore} from "@lib/store/UseGameStore";
-import {SetupKeyboard} from "@lib/helpers/SetupKeyboard";
+import {SetupKeyboard} from "@lib/mixins/SetupKeyboard";
 import {UseGuessStore} from "@lib/store/UseGuessStore";
 
 @Component({

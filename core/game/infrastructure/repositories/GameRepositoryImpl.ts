@@ -14,12 +14,12 @@ export class GameRepositoryImpl implements GameRepository {
     }
 
     async startGame(): Promise<GameId> {
-        const {gameId: id}: GameDto = await this.apiClient.post<GameDto>({url: '/game'})
+        const {data: {gameId: id}} = await this.apiClient.post<GameDto>({url: '/game'})
         return <GameId>id
     }
 
     async getGame(id: GameId): Promise<Game> {
-        const response: GameDto = await this.apiClient.get<GameDto>({url: `/game/${id}`})
+        const {data:response} = await this.apiClient.get<GameDto>({url: `/game/${id}`})
         return this.mapper.toDomain(response)
     }
 }

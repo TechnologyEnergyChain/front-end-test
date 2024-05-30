@@ -1,6 +1,6 @@
 import {GuessWordException} from "../../guess/domain/entities/GuessWord";
 
-export interface DataException {
+export type DataException = {
     kind:  string,
     error: Error
 }
