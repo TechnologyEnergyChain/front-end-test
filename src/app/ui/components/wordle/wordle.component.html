@@ -1,0 +1,12 @@
+<mat-card class="content" [ngClass]="{'animated':isFinish,'win':isWin,'lose':!isWin}">
+    @for (word of maxWordsArr; track word; let i = $index) {
+
+    <mat-card class="word" [ngClass]="{'primary-color':!isWordReadOnly(i),'accent-color':isWordWriten(i)}">
+        @for (letter of maxWordLengthArr; track letter;let j = $index;) {
+        <input #inputref onlyLetter type="text" class="letter" maxlength="1" [class]="getTypeClass(i,j)"
+            (onfocus)="wordInpuFocus(inputref,i,j)" [(ngModel)]="model[i][j]"
+            (ngModelChange)="modelChange($event,inputref,i)" />
+        }
+    </mat-card>
+    }
+</mat-card>

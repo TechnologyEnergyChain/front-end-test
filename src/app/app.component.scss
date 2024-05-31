@@ -1,0 +1,21 @@
+:host {
+    height: 100%;
+}
+
+.background-color {
+    height: 100%;
+}
+
+.router-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    overflow: auto;
+}
+
+.show-keyboard {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}

@@ -1,0 +1,7 @@
+<div class="container">
+    <h2 class="text-color">
+        {{title}}
+    </h2>
+    <app-worlde [currentWordIndex]="currentWordIndex" (onWrittenWord)="writtenWord($event)" [maxWords]="maxWords"
+        [maxWordLength]="maxWordLength" [words]="words"></app-worlde>
+</div>

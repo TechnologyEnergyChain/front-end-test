@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+    <h1>{{title}}</h1>
+</mat-toolbar>
+<mat-card class="router-content background-color">
+    <router-outlet />
+    <app-keyboard></app-keyboard>
+</mat-card>
+<button mat-fab class="show-keyboard" color="primary" (click)="showKeyboard()" aria-label="Shoe hide keyboard">
+    <mat-icon>keyboard</mat-icon>
+</button>
