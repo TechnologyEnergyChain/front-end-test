@@ -1,6 +1,6 @@
 import {Component, HostListener} from "@angular/core";
-import {UseGuessStore} from "@lib/store/UseGuessStore";
-import {UseGameStore} from "@lib/store/UseGameStore";
+import {UseGuessStore} from "@src/core/guess/UseGuessStore";
+import {UseGameStore} from "@src/core/game/presentation/UseGameStore";
 import {VALID_CHARACTERS, WORD_LENGTH} from "@core/guess/domain/entities/GuessWord";
 
 @Component({

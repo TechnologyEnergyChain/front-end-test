@@ -1,7 +1,7 @@
 import {GuessDictionaryService} from "./GuessDictionaryService";
-import {GuessDictionaryRepository} from "../repositories/GuessDictionaryRepository";
-import {ResponseStatus} from "../../../common/domain/ResponseStatus";
-import {GuessWordDoesntExistException} from "../entities/GuessWord";
+import {GuessDictionaryRepository} from "../../ports/GuessDictionaryRepository";
+import {ResponseStatus} from "../../../../common/domain/ResponseStatus";
+import {GuessWordDoesntExistException} from "../../entities/GuessWord";
 
 export class GuessDictionaryServiceImpl implements GuessDictionaryService {
     constructor(private readonly repository: GuessDictionaryRepository) {

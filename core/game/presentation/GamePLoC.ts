@@ -1,7 +1,7 @@
 import {Ploc} from "../../common/presentation/Ploc";
 import {Game} from "../domain/entities/GameModel";
-import {StartGameUseCase} from "../domain/application/StartGameUseCase";
-import {GetGameUseCase} from "../domain/application/GetGameUseCase";
+import {StartGameUseCase} from "../domain/application/actions/StartGameUseCase";
+import {GetGameUseCase} from "../domain/application/actions/GetGameUseCase";
 import {GameId} from "../domain/entities/GameId";
 import {UnexpectedException} from "../../common/domain/DataException";
 

@@ -1,0 +1,14 @@
+.main {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  height: 100%;
+  align-items: center;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

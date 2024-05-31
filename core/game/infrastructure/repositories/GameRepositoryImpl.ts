@@ -1,4 +1,4 @@
-import {GameRepository} from "../../domain/repositories/GameRepository";
+import {GameRepository} from "../../domain/ports/GameRepository";
 import {GameMapper} from "../mappers/GameMapper";
 import {GameId} from "../../domain/entities/GameId";
 import {Game} from "../../domain/entities/GameModel";

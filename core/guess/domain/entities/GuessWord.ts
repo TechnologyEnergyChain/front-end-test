@@ -3,7 +3,7 @@ import {DataException} from "../../../common/domain/DataException";
 
 export const WORD_LENGTH = GameBoard.COLUMNS
 
-export const VALID_CHARACTERS = /^[a-zA-Z]$/
+export const VALID_CHARACTERS = /^[a-zA-ZñÑ]$/
 
 export type GuessWord = string
 

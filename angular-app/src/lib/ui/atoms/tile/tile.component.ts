@@ -19,9 +19,9 @@ export class TileComponent {
   setTileCssClass(): Record<string, boolean> {
     return {
       'has-letter': !!this.letter,
-      'reveled-invalid': this.result === GuessResult.INVALID,
-      'reveled-invalid-place': this.result === GuessResult.INVALID_PLACE,
-      'reveled-valid': this.result === GuessResult.VALID,
+      'reveled reveled-invalid': this.result === GuessResult.INVALID,
+      'reveled reveled-invalid-place': this.result === GuessResult.INVALID_PLACE,
+      'reveled reveled-valid': this.result === GuessResult.VALID,
     }
   }
 }

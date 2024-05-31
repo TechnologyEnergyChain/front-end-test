@@ -1,0 +1,31 @@
+.-bg-primary {
+  background-color: var(--c-primary);
+}
+
+.-bg-shade-100 {
+  background-color: var(--c-shade-100);
+}
+
+.-bg-shade-200 {
+  background-color: var(--c-shade-200);
+}
+
+.-bg-tone-100 {
+  background-color: var(--c-tone-100);
+}
+
+.-c-primary {
+  color: var(--c-primary);
+}
+
+.-c-shade-100 {
+  color: var(--c-shade-100);
+}
+
+.-c-shade-200 {
+  color: var(--c-shade-200);
+}
+
+.-c-tone-100 {
+  color: var(--c-tone-100);
+}

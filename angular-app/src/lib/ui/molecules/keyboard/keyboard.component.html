@@ -1,0 +1,11 @@
+<div class="keyboard">
+  @for (keys of keyboard; let row = $index; track row) {
+    <div class="row">
+      @for (key of keys; track $index) {
+        <a-key [key]="key"
+               [isActive]="!invalidKeys.includes(key.toLowerCase())"
+               (click)="emulateKeyboardEvent(key)"/>
+      }
+    </div>
+  }
+</div>

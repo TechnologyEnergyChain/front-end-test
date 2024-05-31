@@ -1,4 +1,4 @@
-import {GuessRepository} from "../../domain/repositories/GuessRepository";
+import {GuessRepository} from "../../domain/ports/GuessRepository";
 import {GuessMapper} from "../mappers/GuessMapper";
 import {GameId} from "../../../game/domain/entities/GameId";
 import {GuessDto} from "../dtos/GuessDto";

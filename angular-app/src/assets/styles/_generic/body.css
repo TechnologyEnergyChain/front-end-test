@@ -1,0 +1,6 @@
+body {
+  height: 100vh;
+  font-family: var(--ff-arcade);
+  background: var(--c-primary);
+  color: var(--c-shade-200);
+}

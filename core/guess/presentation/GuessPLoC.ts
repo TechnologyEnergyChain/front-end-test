@@ -1,10 +1,10 @@
 import {Ploc} from "../../common/presentation/Ploc";
 import {Guess} from "../domain/entities/GuessModel";
-import {SubmitGuessUseCase} from "../domain/actions/SubmitGuessUseCase";
+import {SubmitGuessUseCase} from "../domain/application/actions/SubmitGuessUseCase";
 import {normalizeWord} from "../../common/helpers/normalizeWord";
 import {DataException, UnexpectedException} from "../../common/domain/DataException";
 import {GamePLoC} from "../../game/presentation/GamePLoC";
-import {CheckGuessWordIsInDictionaryUseCase} from "../domain/actions/CheckGuessWordIsInDictionaryUseCase";
+import {CheckGuessWordIsInDictionaryUseCase} from "../domain/application/actions/CheckGuessWordIsInDictionaryUseCase";
 import {GuessWordDoesntExistException} from "../domain/entities/GuessWord";
 
 export class GuessPLoC extends Ploc<Guess> {

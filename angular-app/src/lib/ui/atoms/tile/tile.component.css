@@ -1,27 +1,34 @@
 li {
-  width: 48px;
-  height: 48px;
-  border: 1px solid black;
+  width: var(--s-48px);
+  height: var(--s-48px);
   text-transform: uppercase;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+li:not(.reveled) {
+  border: calc(calc(2 / 16) * 1rem) solid var(--c-tone-100);
+}
+
 .has-letter {
-  animation: scale-letter 300ms ease forwards;
+  animation: scale-letter .25s ease forwards;
+}
+
+.reveled {
+  color: var(--c-primary);
 }
 
 .reveled-invalid {
-  background: gray;
+  background:var(--c-tone-100);
 }
 
 .reveled-valid {
-  background: green;
+  background: var(--c-shade-200);
 }
 
 .reveled-invalid-place {
-  background: orange;
+  background: var(--c-shade-100);
 }
 
 @keyframes scale-letter {

@@ -1,7 +1,8 @@
-import {DependencyLocator} from "@lib/dependency-injection/DependencyLocator";
-import {UseGameStore} from "@lib/store/UseGameStore";
+import {DependencyLocator} from "@src/core/common/infrastructure/DependencyLocator";
+import {UseGameStore} from "@src/core/game/presentation/UseGameStore";
 import {TestBed} from "@angular/core/testing";
 import {Game} from "@core/game/domain/entities/GameModel";
+import {GameModelFactory} from "@core/test/factories/game/GameModelFactory";
 
 describe('UseGameStore', () => {
   let useGameStore: UseGameStore;
@@ -22,9 +23,6 @@ describe('UseGameStore', () => {
     expect(useGameStore).toBeTruthy();
   });
 
-  it('should have an undefined state', () => {
-    expect(useGameStore.state).toEqual(undefined);
-  });
 
   it('should update the state', () => {
     const gameData = new Game({id: 'randomId'});

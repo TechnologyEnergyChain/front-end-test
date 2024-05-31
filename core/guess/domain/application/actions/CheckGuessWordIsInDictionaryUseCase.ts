@@ -1,5 +1,5 @@
-import {Command} from "../../../common/domain/Command";
-import {Guess} from "../entities/GuessModel";
+import {Command} from "../../../../common/domain/Command";
+import {Guess} from "../../entities/GuessModel";
 import {GuessDictionaryService} from "../services/GuessDictionaryService";
 
 export class CheckGuessWordIsInDictionaryUseCase implements Command {

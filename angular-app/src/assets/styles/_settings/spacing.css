@@ -1,0 +1,12 @@
+:root {
+  /* base 4px sizes */
+  --s-4px: calc(calc(4 / 16) * 1rem);
+  --s-8px: calc(calc(8 / 16) * 1rem);
+  --s-12px: calc(calc(12 / 16) * 1rem);
+  --s-16px: calc(calc(16 / 16) * 1rem);
+  --s-20px: calc(calc(20 / 16) * 1rem);
+  --s-24px: calc(calc(24 / 16) * 1rem);
+  --s-28px: calc(calc(28 / 16) * 1rem);
+  --s-32px: calc(calc(32 / 16) * 1rem);
+  --s-48px: calc(calc(48 / 16) * 1rem);
+}

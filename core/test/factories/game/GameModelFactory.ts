@@ -18,4 +18,8 @@ export class GameModelFactory extends Factory<Game> {
         return new Game({...this.data, ...extra});
     }
 
+    createEmptyGame() {
+        return new Game({id:''})
+    }
+
 }

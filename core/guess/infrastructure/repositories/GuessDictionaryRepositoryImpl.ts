@@ -1,5 +1,5 @@
 import {ApiClient} from "../../../common/infrastructure/ApiClient";
-import {GuessDictionaryRepository} from "../../domain/repositories/GuessDictionaryRepository";
+import {GuessDictionaryRepository} from "../../domain/ports/GuessDictionaryRepository";
 
 
 export class GuessDictionaryRepositoryImpl implements GuessDictionaryRepository {

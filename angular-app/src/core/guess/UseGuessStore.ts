@@ -1,21 +1,22 @@
-import {Inject, Injectable} from "@angular/core";
-import {DependencyLocator} from "@lib/dependency-injection/DependencyLocator";
+import {Inject, Injectable, signal, WritableSignal} from "@angular/core";
+import {DependencyLocator} from "@src/core/common/infrastructure/DependencyLocator";
 import {GuessPLoC} from "@core/guess/presentation/GuessPLoC";
 import {Guess} from "@core/guess/domain/entities/GuessModel";
+import {Game} from "@core/game/domain/entities/GameModel";
 
 @Injectable()
 export class UseGuessStore {
   private readonly _ploc: GuessPLoC
-  private _state?: Guess
+  private readonly _state: WritableSignal<Guess>
 
   constructor(@Inject(DependencyLocator) private readonly dependency: DependencyLocator) {
     this._ploc = this.dependency.get("GuessPloc")
-
+    this._state = signal(this._ploc.state)
     this._ploc.subscribe(this.stateSubscription)
   }
 
   stateSubscription = (state: Guess) => {
-    this._state = state
+    this._state.set(state)
   }
 
   unsubscribe() {
@@ -27,7 +28,7 @@ export class UseGuessStore {
   }
 
   get state(): Guess | undefined {
-    return this._state
+    return this._state()
   }
 
 
