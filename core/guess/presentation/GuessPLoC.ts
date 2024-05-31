@@ -28,8 +28,8 @@ export class GuessPLoC extends Ploc<Guess> {
 
         try {
             await this.checkInDictionaryUseCase.execute(this.state.word ?? '')
-            await this.submitGuessUseCase.execute({gameId: this.currentGame.state.id, word: this.state.word ?? ''})
-            this.update(new Guess({}))
+            const newGuess = await this.submitGuessUseCase.execute({gameId: this.currentGame.state.id, word: this.state.word ?? ''})
+            this.update(newGuess)
         } catch (e) {
             throw (e as DataException)?.kind ? e : UnexpectedException()
         }

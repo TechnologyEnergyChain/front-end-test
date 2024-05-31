@@ -8,8 +8,6 @@ describe("Keydown event", () => {
       cy.get("body").type(letter)
       cy.get('li.has-letter').last().should('contain.text', normalizeWord(letter))
     })
-
-    // cy.get("body").type('{enter}')
   })
 
   it('can press enter to execute the guess submit', () => {
