@@ -1,5 +1,3 @@
-import {Game} from "../../game/domain/entities/GameModel";
-
 type Listener<S> = (state: S) => void
 
 interface Observer {

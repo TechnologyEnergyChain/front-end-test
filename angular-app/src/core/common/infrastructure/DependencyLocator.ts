@@ -1,15 +1,14 @@
 import {Injectable} from "@angular/core";
-import {ApiV1} from "@lib/api/ApiV1";
+import {ApiV1} from "@src/core/common/infrastructure/api/ApiV1";
 import {DependencyProvider} from "@core/common/dependencies/DependencyProvider";
 import {Dependencies} from "@core/common/dependencies/Container";
-import {ApiRAE} from "@lib/api/ApiRAE";
+import {ApiRAE} from "@src/core/common/infrastructure/api/ApiRAE";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DependencyLocator {
   private readonly _provider: DependencyProvider = new DependencyProvider()
-
 
   constructor() {
     this._provider.provideGamePloc(new ApiV1())
