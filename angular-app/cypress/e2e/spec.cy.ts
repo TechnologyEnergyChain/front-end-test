@@ -1,5 +1,4 @@
 import {GameBoard} from "../../../core/game/domain/entities/GameBoard";
-import {normalizeWord} from "../../../core/common/helpers/normalizeWord";
 
 
 describe('The app runs', () => {

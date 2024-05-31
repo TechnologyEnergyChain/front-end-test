@@ -8,7 +8,6 @@ interface Observer {
     unsubscribe(listener: Listener<any>): void
 }
 
-// Observer Pattern
 export abstract class Ploc<S> implements Observer {
     listeners: Listener<S>[] = []
 

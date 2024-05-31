@@ -2,7 +2,7 @@ import {TestBed} from "@angular/core/testing";
 import {BoardComponent} from "@lib/ui/molecules/board/board.component";
 import {UseGameStore} from "@src/core/game/presentation/UseGameStore";
 import {DependencyLocator} from "@src/core/common/infrastructure/DependencyLocator";
-import {UseGuessStore} from "@src/core/guess/UseGuessStore";
+import {UseGuessStore} from "@src/core/guess/presentation/UseGuessStore";
 import {GuessResult} from "@core/guess/domain/entities/GuessResult";
 import {GameModelFactory} from "@core/test/factories/game/GameModelFactory";
 import {GuessModelFactory} from "@core/test/factories/guess/GuesModelFactory";

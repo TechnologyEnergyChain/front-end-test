@@ -4,7 +4,7 @@ import {TileComponent} from "@lib/ui/atoms/tile/tile.component";
 import {BoardComponent} from "@lib/ui/molecules/board/board.component";
 import {UseGameStore} from "@src/core/game/presentation/UseGameStore";
 import {SetupKeyboard} from "@lib/mixins/SetupKeyboard";
-import {UseGuessStore} from "@src/core/guess/UseGuessStore";
+import {UseGuessStore} from "@src/core/guess/presentation/UseGuessStore";
 import {KeyboardComponent} from "@lib/ui/molecules/keyboard/keyboard.component";
 
 @Component({

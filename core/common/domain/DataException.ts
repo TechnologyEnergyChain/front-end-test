@@ -1,5 +1,3 @@
-import {GuessWordException} from "../../guess/domain/entities/GuessWord";
-
 export type DataException = {
     kind:  string,
     error: Error

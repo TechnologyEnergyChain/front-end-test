@@ -2,7 +2,7 @@ import {Component, inject, OnDestroy} from "@angular/core";
 import {TileComponent} from "@lib/ui/atoms/tile/tile.component";
 import {GuessResult} from "@core/guess/domain/entities/GuessResult";
 import {UseGameStore} from "@src/core/game/presentation/UseGameStore";
-import {UseGuessStore} from "@src/core/guess/UseGuessStore";
+import {UseGuessStore} from "@src/core/guess/presentation/UseGuessStore";
 import {GameBoard} from "@core/game/domain/entities/GameBoard";
 
 @Component({

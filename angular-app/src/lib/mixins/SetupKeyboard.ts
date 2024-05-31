@@ -1,5 +1,5 @@
 import {Component, HostListener} from "@angular/core";
-import {UseGuessStore} from "@src/core/guess/UseGuessStore";
+import {UseGuessStore} from "@src/core/guess/presentation/UseGuessStore";
 import {UseGameStore} from "@src/core/game/presentation/UseGameStore";
 import {VALID_CHARACTERS, WORD_LENGTH} from "@core/guess/domain/entities/GuessWord";
 
