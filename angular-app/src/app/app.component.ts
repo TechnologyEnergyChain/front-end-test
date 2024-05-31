@@ -6,16 +6,24 @@ import {UseGameStore} from "@src/core/game/presentation/UseGameStore";
 import {SetupKeyboard} from "@lib/mixins/SetupKeyboard";
 import {UseGuessStore} from "@src/core/guess/presentation/UseGuessStore";
 import {KeyboardComponent} from "@lib/ui/molecules/keyboard/keyboard.component";
+import {ToastComponent} from "@lib/ui/molecules/toast/toast.component";
+import {ToastService} from "@src/core/toast/domain/services/ToastService";
+import {Toast} from "@src/core/toast/domain/entities/Toast";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, TileComponent, BoardComponent, KeyboardComponent],
+  imports: [RouterOutlet, TileComponent, BoardComponent, KeyboardComponent, ToastComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers: [UseGameStore, UseGuessStore]
+  providers: [UseGameStore, UseGuessStore, ToastService]
 })
 export class AppComponent extends SetupKeyboard implements OnInit, OnDestroy {
+
+  private alertService = inject(ToastService)
+
+  toast: Toast = new Toast()
+
   constructor() {
     super(
       inject(UseGuessStore),
@@ -26,6 +34,10 @@ export class AppComponent extends SetupKeyboard implements OnInit, OnDestroy {
   async ngOnInit() {
     await this.gameStore.ploc.start()
     await this.gameStore.ploc.getGame()
+    this.alertService.alertState.subscribe(toast => {
+      this.toast.message = toast.message;
+      this.toast.type = toast.type;
+    });
   }
 
   ngOnDestroy(): void {

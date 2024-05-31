@@ -1,0 +1,9 @@
+.alert {
+  padding: var(--s-16px);
+  position: fixed;
+  color: var(--c-tone-100);
+  border: var(--s-4px) solid var(--c-tone-100);
+  font-size: var(--s-12px);
+  top: var(--s-48px);
+  right: var(--s-48px);
+}

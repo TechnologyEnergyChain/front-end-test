@@ -1,13 +1,20 @@
-import {Component, HostListener} from "@angular/core";
+import {Component, HostListener, inject} from "@angular/core";
 import {UseGuessStore} from "@src/core/guess/presentation/UseGuessStore";
 import {UseGameStore} from "@src/core/game/presentation/UseGameStore";
 import {VALID_CHARACTERS, WORD_LENGTH} from "@core/guess/domain/entities/GuessWord";
+import {ToastService} from "@src/core/toast/domain/services/ToastService";
+import {Toast} from "@src/core/toast/domain/entities/Toast";
+import {DataException} from "@core/common/domain/DataException";
 
 @Component({
   standalone: true,
-  template: ''
+  template: '',
+  providers: [
+    ToastService
+  ]
 })
 export class SetupKeyboard {
+  private toastService: ToastService = inject(ToastService)
 
   constructor(
     protected readonly guessStore: UseGuessStore,
@@ -33,6 +40,10 @@ export class SetupKeyboard {
         return
       } catch (e) {
         // TODO: Show alert to user
+        if ((<DataException>e).kind) {
+          const toast = new Toast((<DataException>e).error.message, "danger")
+          this.toastService.showAlert(toast)
+        }
         throw e
       }
 
