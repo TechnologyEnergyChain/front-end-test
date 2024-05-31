@@ -5,7 +5,6 @@ import {normalizeWord} from "../../common/helpers/normalizeWord";
 import {DataException, UnexpectedException} from "../../common/domain/DataException";
 import {GamePLoC} from "../../game/presentation/GamePLoC";
 import {CheckGuessWordIsInDictionaryUseCase} from "../domain/application/actions/CheckGuessWordIsInDictionaryUseCase";
-import {GuessWordDoesntExistException} from "../domain/entities/GuessWord";
 
 export class GuessPLoC extends Ploc<Guess> {
     constructor(

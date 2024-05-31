@@ -1,4 +1,4 @@
-import {Component, effect, inject, OnInit, signal, WritableSignal} from "@angular/core";
+import {Component, effect, inject, OnInit} from "@angular/core";
 import {NgClass} from "@angular/common";
 import {KeyComponent} from "@lib/ui/atoms/key/key.component";
 import {UseGameStore} from "@src/core/game/presentation/UseGameStore";

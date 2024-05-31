@@ -6,7 +6,6 @@ import {UseGameStore} from "@src/core/game/presentation/UseGameStore";
 import {SetupKeyboard} from "@lib/mixins/SetupKeyboard";
 import {UseGuessStore} from "@src/core/guess/UseGuessStore";
 import {KeyboardComponent} from "@lib/ui/molecules/keyboard/keyboard.component";
-import {DictionaryServiceImpl} from "@src/core/keyboard/domain/application/services/DictionaryServiceImpl";
 
 @Component({
   selector: 'app-root',

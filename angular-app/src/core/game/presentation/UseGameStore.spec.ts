@@ -2,7 +2,6 @@ import {DependencyLocator} from "@src/core/common/infrastructure/DependencyLocat
 import {UseGameStore} from "@src/core/game/presentation/UseGameStore";
 import {TestBed} from "@angular/core/testing";
 import {Game} from "@core/game/domain/entities/GameModel";
-import {GameModelFactory} from "@core/test/factories/game/GameModelFactory";
 
 describe('UseGameStore', () => {
   let useGameStore: UseGameStore;

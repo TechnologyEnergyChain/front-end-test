@@ -2,7 +2,6 @@ import {Inject, Injectable, signal, WritableSignal} from "@angular/core";
 import {DependencyLocator} from "@src/core/common/infrastructure/DependencyLocator";
 import {GuessPLoC} from "@core/guess/presentation/GuessPLoC";
 import {Guess} from "@core/guess/domain/entities/GuessModel";
-import {Game} from "@core/game/domain/entities/GameModel";
 
 @Injectable()
 export class UseGuessStore {
