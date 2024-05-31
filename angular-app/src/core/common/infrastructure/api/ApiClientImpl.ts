@@ -19,12 +19,12 @@ export abstract class ApiClientImpl implements ApiClient {
 
   post<T>({url, params, payload}: { url: string; params?: any; payload?: any }): Promise<ApiResponse<T>> {
     const URL = createUrlWithParams(`${this.baseUrl}${url}`, params)
-    return doFetch(URL, {method: 'POST', body: payload})
+    return doFetch(URL, {method: 'POST', body: JSON.stringify(payload)})
   }
 
   update<T>({url, params, payload}: { url: string; params?: any; payload?: any }): Promise<ApiResponse<T>> {
     const URL = createUrlWithParams(`${this.baseUrl}${url}`, params)
-    return doFetch(URL, {method: 'PUT', body: payload})
+    return doFetch(URL, {method: 'PUT', body: JSON.stringify(payload)})
   }
 
 }
