@@ -1,6 +1,7 @@
 @import "_settings/colors.css";
 @import "_settings/spacing.css";
 @import "_settings/fonts.css";
+@import "_settings/stacking.css";
 
 @import "_generic/reset.css";
 @import "_generic/body.css";

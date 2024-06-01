@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 :root {
   --ff-arcade: "Press Start 2P", system-ui;
+  --fs-medium: clamp(var(--s-12px), 1.5vw, var(--s-16px));
 }
 
 
