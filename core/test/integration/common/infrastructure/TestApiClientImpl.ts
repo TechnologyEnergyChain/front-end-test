@@ -1,5 +1,5 @@
-import {ApiClient} from "../../../../common/infrastructure/ApiClient";
-import {ApiResponse} from "../../../../common/domain/ApiResponse";
+import {ApiClient} from '../../../../common/infrastructure/ApiClient'
+import {ApiResponse} from '../../../../common/domain/ApiResponse'
 
 export class TestApiClientImpl implements ApiClient {
 

@@ -1,4 +1,4 @@
-import {ToastType} from "@src/core/toast/domain/entities/ToastType";
+import {ToastType} from '@src/core/toast/domain/entities/ToastType'
 
 export class Toast {
   message: string | null = null

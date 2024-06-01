@@ -1,9 +1,9 @@
-import {Component, inject, OnDestroy} from "@angular/core";
-import {TileComponent} from "@lib/ui/atoms/tile/tile.component";
-import {GuessResult} from "@core/guess/domain/entities/GuessResult";
-import {UseGameStore} from "@src/core/game/presentation/UseGameStore";
-import {UseGuessStore} from "@src/core/guess/presentation/UseGuessStore";
-import {GameBoard} from "@core/game/domain/entities/GameBoard";
+import {Component, inject, OnDestroy} from '@angular/core'
+import {TileComponent} from '@lib/ui/atoms/tile/tile.component'
+import {GuessResult} from '@core/guess/domain/entities/GuessResult'
+import {UseGameStore} from '@src/core/game/presentation/UseGameStore'
+import {UseGuessStore} from '@src/core/guess/presentation/UseGuessStore'
+import {GameBoard} from '@core/game/domain/entities/GameBoard'
 
 @Component({
   standalone: true,
@@ -25,26 +25,14 @@ export class BoardComponent implements OnDestroy {
 
 
   getLetter(row: number, column: number) {
-    if (this.gameStore.state?.guesses?.[row]?.word) {
-      return `${this.gameStore.state?.guesses?.[row]?.word?.split('')[column] ?? ''}`
-    }
-    if (row === this.gameStore.state?.attempts) {
-      return `${this.guessStore.state?.word?.split('')[column] ?? ''}`
-    }
-    return
+    return this.gameStore.state?.attempts === row
+      ? `${this.guessStore.state?.word?.[column] ?? ''}`
+      : `${this.gameStore.state?.guesses?.[row]?.word?.[column] ?? ''}`
   }
 
   getResult(row: number, column: number): GuessResult | undefined {
-    let resultNumber
-    if (this.gameStore.state?.guesses?.[row]?.result) {
-      resultNumber = this.gameStore.state?.guesses?.[row]?.result?.split('')[column]
-      return resultNumber ? parseInt(resultNumber) : undefined
-    }
-    if (row === this.gameStore.state?.attempts) {
-      resultNumber = this.guessStore.state?.result?.split('')[column]
-      return resultNumber ? parseInt(resultNumber) : undefined
-    }
-    return
+    const result = this.gameStore.state?.guesses?.[row]?.result?.[column]
+    return result ? parseInt(result) : undefined
   }
 
   ngOnDestroy(): void {

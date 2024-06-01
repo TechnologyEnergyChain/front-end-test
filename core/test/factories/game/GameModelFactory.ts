@@ -1,9 +1,9 @@
-import {Factory} from "../Factory";
-import {Game} from "../../../game/domain/entities/GameModel";
-import {GameStatus} from "../../../game/domain/entities/GameStatus";
-import {fakeUUID} from "../helpers/fakeUUID";
-import {fakeAttempts} from "../helpers/fakeAttempts";
-import {fakeGuessWord} from "../helpers/fakeGuessWord";
+import {Factory} from '../Factory'
+import {Game} from '../../../game/domain/entities/GameModel'
+import {GameStatus} from '../../../game/domain/entities/GameStatus'
+import {fakeUUID} from '../helpers/fakeUUID'
+import {fakeAttempts} from '../helpers/fakeAttempts'
+import {fakeGuessWord} from '../helpers/fakeGuessWord'
 
 export class GameModelFactory extends Factory<Game> {
     data = {
@@ -15,7 +15,7 @@ export class GameModelFactory extends Factory<Game> {
     }
 
     create(extra?: {}): Game {
-        return new Game({...this.data, ...extra});
+        return new Game({...this.data, ...extra})
     }
 
     createEmptyGame() {

@@ -1,8 +1,8 @@
-import {Factory} from "../Factory";
-import {GuessDto} from "../../../guess/infrastructure/dtos/GuessDto";
-import {fakeResult} from "../helpers/fakeResult";
-import {fakeAttempts} from "../helpers/fakeAttempts";
-import {fakeGameWon} from "../helpers/fakeGameWon";
+import {Factory} from '../Factory'
+import {GuessDto} from '../../../guess/infrastructure/dtos/GuessDto'
+import {fakeResult} from '../helpers/fakeResult'
+import {fakeAttempts} from '../helpers/fakeAttempts'
+import {fakeGameWon} from '../helpers/fakeGameWon'
 
 export class GuessDtoFactory extends Factory<GuessDto> {
     private result = fakeResult()
@@ -17,6 +17,6 @@ export class GuessDtoFactory extends Factory<GuessDto> {
         return {
             ...this.data,
             ...extra
-        };
+        }
     }
 }

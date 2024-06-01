@@ -21,7 +21,7 @@ export abstract class Ploc<S> implements Observer {
     update(state: S) {
         this.internalState = state
 
-        if (this.listeners.length > 0) {
+        if (0 < this.listeners.length) {
             this.listeners.forEach(listener => listener(this.state))
         }
     }
@@ -32,7 +32,7 @@ export abstract class Ploc<S> implements Observer {
 
     unsubscribe(listener: Listener<S>) {
         const index = this.listeners.indexOf(listener)
-        if (index > -1) {
+        if (-1 < index) {
             this.listeners.splice(index, 1)
         }
     }

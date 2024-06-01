@@ -1,5 +1,5 @@
-import {GameBoard} from "../../../game/domain/entities/GameBoard";
-import {DataException} from "../../../common/domain/DataException";
+import {GameBoard} from '../../../game/domain/entities/GameBoard'
+import {DataException} from '../../../common/domain/DataException'
 
 export const WORD_LENGTH = GameBoard.COLUMNS
 
@@ -27,7 +27,7 @@ export function GuessWordIsNotValidException(word?: GuessWord): DataException {
 export function GuessWordIsNotDefinedException(): DataException {
     return {
         kind: GuessWordException.UNDEFINED,
-        error: new Error(`😵 The word isn't defined`)
+        error: new Error('😵 The word isn\'t defined')
     }
 }
 

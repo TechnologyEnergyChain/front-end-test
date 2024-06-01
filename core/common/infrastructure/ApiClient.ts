@@ -1,4 +1,4 @@
-import {ApiResponse} from "../domain/ApiResponse";
+import {ApiResponse} from '../domain/ApiResponse'
 
 export interface ApiClient {
     baseUrl?: string

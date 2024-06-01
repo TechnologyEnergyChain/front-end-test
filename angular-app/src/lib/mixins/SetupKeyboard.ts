@@ -1,10 +1,10 @@
-import {Component, HostListener, inject} from "@angular/core";
-import {UseGuessStore} from "@src/core/guess/presentation/UseGuessStore";
-import {UseGameStore} from "@src/core/game/presentation/UseGameStore";
-import {VALID_CHARACTERS, WORD_LENGTH} from "@core/guess/domain/entities/GuessWord";
-import {ToastService} from "@src/core/toast/domain/services/ToastService";
-import {Toast} from "@src/core/toast/domain/entities/Toast";
-import {DataException} from "@core/common/domain/DataException";
+import {Component, HostListener, inject} from '@angular/core'
+import {UseGuessStore} from '@src/core/guess/presentation/UseGuessStore'
+import {UseGameStore} from '@src/core/game/presentation/UseGameStore'
+import {VALID_CHARACTERS, WORD_LENGTH} from '@core/guess/domain/entities/GuessWord'
+import {ToastService} from '@src/core/toast/domain/services/ToastService'
+import {Toast} from '@src/core/toast/domain/entities/Toast'
+import {DataException} from '@core/common/domain/DataException'
 
 @Component({
   standalone: true,
@@ -29,11 +29,11 @@ export class SetupKeyboard {
     }
 
     const key = evt.key
-    if (key === 'Backspace') {
+    if ('Backspace' === key) {
       this.guessStore.ploc.updateWord = (this.guessStore.state?.word ?? '').slice(0, -1)
       return
     }
-    if (key === 'Enter') {
+    if ('Enter' === key) {
       try {
         await this.guessStore.ploc.submit()
         await this.gameStore.ploc.getGame()
@@ -41,7 +41,7 @@ export class SetupKeyboard {
       } catch (e) {
         // TODO: Show alert to user
         if ((<DataException>e).kind) {
-          const toast = new Toast((<DataException>e).error.message, "danger")
+          const toast = new Toast((<DataException>e).error.message, 'danger')
           this.toastService.showAlert(toast)
         }
         throw e
@@ -50,7 +50,7 @@ export class SetupKeyboard {
     }
     if (VALID_CHARACTERS.test(key)) {
       if (WORD_LENGTH <= (this.guessStore?.state?.word?.length ?? 0)) {
-        return;
+        return
       }
       this.guessStore.ploc.updateWord = (this.guessStore.state?.word ?? '').concat(key)
     } else {

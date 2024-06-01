@@ -1,5 +1,5 @@
-import {Guess} from "../../../guess/domain/entities/GuessModel";
-import {DataException} from "../../../common/domain/DataException";
+import {Guess} from '../../../guess/domain/entities/GuessModel'
+import {DataException} from '../../../common/domain/DataException'
 
 export type GameGuesses = Guess[]
 

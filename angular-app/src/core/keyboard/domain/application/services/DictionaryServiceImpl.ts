@@ -1,6 +1,6 @@
-import {DictionaryService} from "@src/core/keyboard/domain/application/services/DictionaryService";
-import {Dictionary} from "@src/core/keyboard/domain/entities/Dictionary";
-import {Injectable} from "@angular/core";
+import {DictionaryService} from '@src/core/keyboard/domain/application/services/DictionaryService'
+import {Dictionary} from '@src/core/keyboard/domain/entities/Dictionary'
+import {Injectable} from '@angular/core'
 
 @Injectable()
 export class DictionaryServiceImpl implements DictionaryService {

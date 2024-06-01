@@ -1,11 +1,11 @@
-import {Factory} from "../Factory";
-import {GuessDto} from "../../../guess/infrastructure/dtos/GuessDto";
-import {fakeResult} from "../helpers/fakeResult";
-import {fakeAttempts} from "../helpers/fakeAttempts";
-import {fakeGameWon} from "../helpers/fakeGameWon";
-import {GameDto} from "../../../game/infrastructure/dtos/GameDto";
-import {fakeUUID} from "../helpers/fakeUUID";
-import {fakeGuessWord} from "../helpers/fakeGuessWord";
+import {Factory} from '../Factory'
+import {GuessDto} from '../../../guess/infrastructure/dtos/GuessDto'
+import {fakeResult} from '../helpers/fakeResult'
+import {fakeAttempts} from '../helpers/fakeAttempts'
+import {fakeGameWon} from '../helpers/fakeGameWon'
+import {GameDto} from '../../../game/infrastructure/dtos/GameDto'
+import {fakeUUID} from '../helpers/fakeUUID'
+import {fakeGuessWord} from '../helpers/fakeGuessWord'
 
 export class GameDtoFactory extends Factory<GameDto> {
     private result = fakeResult()
@@ -22,6 +22,6 @@ export class GameDtoFactory extends Factory<GameDto> {
         return {
             ...this.data,
             ...extra
-        };
+        }
     }
 }

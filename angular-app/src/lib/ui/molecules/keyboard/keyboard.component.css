@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--s-16px);
+  font-size: clamp(.7em, 2vw ,1em);
 }
 
 .row {

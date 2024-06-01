@@ -1,12 +1,11 @@
-import {Component, effect, inject, OnInit} from "@angular/core";
-import {NgClass} from "@angular/common";
-import {KeyComponent} from "@lib/ui/atoms/key/key.component";
-import {UseGameStore} from "@src/core/game/presentation/UseGameStore";
-import {GetAlphabetUseCase} from "@src/core/keyboard/domain/application/actions/GetAlphabetUseCase";
-import {DictionaryServiceImpl} from "@src/core/keyboard/domain/application/services/DictionaryServiceImpl";
-import {GetLetterPerRowsUseCase} from "@src/core/keyboard/domain/application/actions/GetLetterPerRowsUseCase";
-
-const SPECIAL_KEYS = [{value: 'enter', code: 'Enter'}, {value: 'delete', code: 'Backspace'}]
+import {Component, effect, inject, OnInit} from '@angular/core'
+import {NgClass} from '@angular/common'
+import {KeyComponent} from '@lib/ui/atoms/key/key.component'
+import {UseGameStore} from '@src/core/game/presentation/UseGameStore'
+import {GetAlphabetUseCase} from '@src/core/keyboard/domain/application/actions/GetAlphabetUseCase'
+import {DictionaryServiceImpl} from '@src/core/keyboard/domain/application/services/DictionaryServiceImpl'
+import {GetLetterPerRowsUseCase} from '@src/core/keyboard/domain/application/actions/GetLetterPerRowsUseCase'
+import {SpecialKeys} from '@src/core/keyboard/domain/entities/SpecialKeys'
 
 @Component({
   standalone: true,
@@ -24,7 +23,7 @@ const SPECIAL_KEYS = [{value: 'enter', code: 'Enter'}, {value: 'delete', code: '
     KeyComponent
   ]
 })
-export class KeyboardComponent implements OnInit {
+export class KeyboardComponent {
 
   protected readonly getAlphabetUseCase: GetAlphabetUseCase = inject(GetAlphabetUseCase)
   protected readonly getLetterPerRowsUseCase: GetLetterPerRowsUseCase = inject(GetLetterPerRowsUseCase)
@@ -36,22 +35,21 @@ export class KeyboardComponent implements OnInit {
   constructor() {
     effect(() => {
       this._findInvalidLetters()
-    });
-  }
+    })
 
-  ngOnInit(): void {
     const letters = this.getAlphabetUseCase.execute()
     const letterPerRow = this.getLetterPerRowsUseCase.execute()
 
-    this.keyboard = letters.reduce((p, c, index) => {
-      if (index % letterPerRow === 0) {
-        (p as string[][]).push(letters.slice(index, index + letterPerRow));
+    this.keyboard = letters.reduce((a, c, index) => {
+      if (0 === index % letterPerRow) {
+        (a as string[][]).push(letters.slice(index, index + letterPerRow))
       }
-      return p;
-    }, []);
+      return a
+    }, [])
 
-    this.keyboard.push(SPECIAL_KEYS.map((key) => key.value))
+    this.keyboard.push(SpecialKeys.map((key) => key.value))
   }
+
 
   emulateKeyboardEvent(key: string) {
     if (this.invalidKeys.includes(key.toLowerCase())) {
@@ -59,14 +57,14 @@ export class KeyboardComponent implements OnInit {
     }
 
     const keyboardEventInit = {
-      key: SPECIAL_KEYS.find((sk) => key.toLowerCase() === sk.value)?.code ?? key,
-      code: SPECIAL_KEYS.find((sk) => key.toLowerCase() === sk.value)?.code ?? `Key${key.toUpperCase()}`,
+      key: SpecialKeys.find((sk) => key.toLowerCase() === sk.value)?.code ?? key,
+      code: SpecialKeys.find((sk) => key.toLowerCase() === sk.value)?.code ?? `Key${key.toUpperCase()}`,
       bubbles: true,
       cancelable: true
     }
 
 
-    document.dispatchEvent(new KeyboardEvent('keydown', keyboardEventInit));
+    document.dispatchEvent(new KeyboardEvent('keydown', keyboardEventInit))
   }
 
   private _findInvalidLetters() {

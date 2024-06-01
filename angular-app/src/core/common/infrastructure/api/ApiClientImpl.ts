@@ -1,5 +1,5 @@
-import {ApiClient} from "@core/common/infrastructure/ApiClient";
-import {ApiResponse} from "@core/common/domain/ApiResponse";
+import {ApiClient} from '@core/common/infrastructure/ApiClient'
+import {ApiResponse} from '@core/common/domain/ApiResponse'
 
 // TODO: Improve ApiClient implementation
 export abstract class ApiClientImpl implements ApiClient {

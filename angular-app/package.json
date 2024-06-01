@@ -30,8 +30,11 @@
     "@angular/cli": "^18.0.1",
     "@angular/compiler-cli": "^18.0.0",
     "@cypress/schematic": "^2.5.1",
+    "@eslint/js": "^9.4.0",
     "@types/jasmine": "~5.1.0",
     "cypress": "latest",
+    "eslint": "9.x",
+    "globals": "^15.3.0",
     "jasmine-core": "~5.1.0",
     "karma": "^6.4.3",
     "karma-chrome-launcher": "~3.2.0",
@@ -39,6 +42,9 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "msw": "^2.3.0",
-    "typescript": "~5.4.2"
-  }
+    "typescript": "~5.4.2",
+    "typescript-eslint": "^7.11.0"
+  },
+  "main": "index.js",
+  "license": "MIT"
 }

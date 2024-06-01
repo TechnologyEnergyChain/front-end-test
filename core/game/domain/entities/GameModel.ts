@@ -1,7 +1,7 @@
-import {GameId, GameIdIsNotDefinedException, isGameIdDefined} from "./GameId";
-import {GameStatus} from "./GameStatus";
-import {Guess} from "../../../guess/domain/entities/GuessModel";
-import {GameGuesses, GameGuessesWordUsedException, isWordOnGuessList} from "./GameGuesses";
+import {GameId, GameIdIsNotDefinedException, isGameIdDefined} from './GameId'
+import {GameStatus} from './GameStatus'
+import {Guess} from '../../../guess/domain/entities/GuessModel'
+import {GameGuesses, GameGuessesWordUsedException, isWordOnGuessList} from './GameGuesses'
 
 
 export interface GameModel {
@@ -13,11 +13,11 @@ export interface GameModel {
 }
 
 export class Game implements GameModel {
-    id: GameId;
-    attempts?: number;
-    guesses?: GameGuesses;
-    status?: GameStatus;
-    wordToGuess?: string;
+    id: GameId
+    attempts?: number
+    guesses?: GameGuesses
+    status?: GameStatus
+    wordToGuess?: string
 
     constructor({id, status, attempts, wordToGuess, guesses}: GameModel) {
         this.id = id

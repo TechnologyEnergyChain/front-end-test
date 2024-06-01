@@ -1,10 +1,10 @@
-import {describe, expect, test} from "vitest";
-import {Guess} from "../../../../../guess/domain/entities/GuessModel";
-import {GuessModelFactory} from "../../../../factories/guess/GuesModelFactory";
-import {GuessWordException, WORD_LENGTH} from "../../../../../guess/domain/entities/GuessWord";
+import {describe, expect, test} from 'vitest'
+import {Guess} from '../../../../../guess/domain/entities/GuessModel'
+import {GuessModelFactory} from '../../../../factories/guess/GuesModelFactory'
+import {GuessWordException, WORD_LENGTH} from '../../../../../guess/domain/entities/GuessWord'
 
-describe("GuessModel", () => {
-    test("should create a GuessModel with word 'solar'", () => {
+describe('GuessModel', () => {
+    test('should create a GuessModel with word \'solar\'', () => {
         const model = new Guess({word: 'solar'})
         expect(model.word).toEqual('solar')
     })

@@ -1,5 +1,5 @@
-import {GameStatus} from "../../../game/domain/entities/GameStatus";
-import {GuessWord, GuessWordIsNotDefinedException, GuessWordIsNotValidException, isGuessWordValid} from "./GuessWord";
+import {GameStatus} from '../../../game/domain/entities/GameStatus'
+import {GuessWord, GuessWordIsNotDefinedException, GuessWordIsNotValidException, isGuessWordValid} from './GuessWord'
 
 export interface GuessModel {
     result?: string
@@ -9,10 +9,10 @@ export interface GuessModel {
 }
 
 export class Guess implements GuessModel {
-    result?: string;
-    attempts?: number;
-    gameStatus?: GameStatus;
-    word?: GuessWord;
+    result?: string
+    attempts?: number
+    gameStatus?: GameStatus
+    word?: GuessWord
 
     constructor({attempts, gameStatus, result, word}: GuessModel) {
         this.result = result

@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {NgClass, NgIf} from "@angular/common";
-import {Toast} from "@src/core/toast/domain/entities/Toast";
+import {Component, Input} from '@angular/core'
+import {NgClass, NgIf} from '@angular/common'
+import {Toast} from '@src/core/toast/domain/entities/Toast'
 
 @Component({
   selector: 'app-toast',

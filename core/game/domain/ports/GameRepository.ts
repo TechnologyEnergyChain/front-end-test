@@ -1,6 +1,6 @@
-import {GameId} from "../entities/GameId";
-import {Game} from "../entities/GameModel";
-import {GameDifficulty} from "../entities/GameDifficulty";
+import {GameId} from '../entities/GameId'
+import {Game} from '../entities/GameModel'
+import {GameDifficulty} from '../entities/GameDifficulty'
 
 
 export interface GameRepository {

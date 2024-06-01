@@ -1,5 +1,5 @@
-import {faker} from "@faker-js/faker";
+import {faker} from '@faker-js/faker'
 
 export const fakeGuessWord = () => {
-    return faker.string.alpha({ length: 5, casing: 'lower' });
+    return faker.string.alpha({ length: 5, casing: 'lower' })
 }

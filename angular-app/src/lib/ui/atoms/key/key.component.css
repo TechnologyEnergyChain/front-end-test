@@ -19,7 +19,7 @@
   border: 0;
   border-radius: calc(calc(6 / 16) * 1rem);
 
-  transition: all 0.2s ease-in-out;
+  transition: background-color  0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 

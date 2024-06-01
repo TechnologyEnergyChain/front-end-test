@@ -1,8 +1,8 @@
-import {Injectable} from "@angular/core";
-import {ApiV1} from "@src/core/common/infrastructure/api/ApiV1";
-import {DependencyProvider} from "@core/common/dependencies/DependencyProvider";
-import {Dependencies} from "@core/common/dependencies/Container";
-import {ApiRAE} from "@src/core/common/infrastructure/api/ApiRAE";
+import {Injectable} from '@angular/core'
+import {ApiV1} from '@src/core/common/infrastructure/api/ApiV1'
+import {DependencyProvider} from '@core/common/dependencies/DependencyProvider'
+import {Dependencies} from '@core/common/dependencies/Container'
+import {ApiRAE} from '@src/core/common/infrastructure/api/ApiRAE'
 
 @Injectable({
   providedIn: 'root'

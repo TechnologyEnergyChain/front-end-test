@@ -1,4 +1,4 @@
-import {Lang} from "@src/core/keyboard/domain/entities/Lang";
+import {Lang} from '@src/core/keyboard/domain/entities/Lang'
 
 const QWERTY = {
   lettersPerRow: 10,
@@ -16,17 +16,17 @@ export class Dictionary {
 
   private _getLangAlphabet(lang: Lang) {
     switch (lang) {
-      case "es":
+      case 'es':
         return QWERTY.letters.split('')
-      case "gl":
-        return QWERTY.letters.split('').filter((letter: string) => letter !== 'y')
+      case 'gl':
+        return QWERTY.letters.split('').filter((letter: string) => 'y' !== letter)
     }
   }
 
   private _getLettersPerRow(lang: Lang) {
     switch (lang) {
-      case "es":
-      case "gl":
+      case 'es':
+      case 'gl':
         return QWERTY.lettersPerRow
     }
   }

@@ -1,5 +1,5 @@
-import {ApiClient} from "../../../common/infrastructure/ApiClient";
-import {GuessDictionaryRepository} from "../../domain/ports/GuessDictionaryRepository";
+import {ApiClient} from '../../../common/infrastructure/ApiClient'
+import {GuessDictionaryRepository} from '../../domain/ports/GuessDictionaryRepository'
 
 
 export class GuessDictionaryRepositoryImpl implements GuessDictionaryRepository {
@@ -9,7 +9,7 @@ export class GuessDictionaryRepositoryImpl implements GuessDictionaryRepository 
     }
 
     async search(word: string): Promise<any> {
-        return await this.apiClient.get<any>({url: `/search`, params: {word}})
+        return await this.apiClient.get<any>({url: '/search', params: {word}})
     }
 
 }

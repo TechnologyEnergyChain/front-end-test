@@ -1,4 +1,4 @@
-import {DataException} from "../../../common/domain/DataException";
+import {DataException} from '../../../common/domain/DataException'
 
 export type GameId = string
 

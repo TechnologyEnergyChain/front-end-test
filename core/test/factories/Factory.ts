@@ -4,6 +4,6 @@ export abstract class Factory<T> {
     abstract create(extra?: {}): T
 
     times(times: number, extra?: {}): T[] {
-        return new Array(times).fill(null).map(() => (this.create(extra)));
+        return new Array(times).fill(null).map(() => (this.create(extra)))
     }
 }

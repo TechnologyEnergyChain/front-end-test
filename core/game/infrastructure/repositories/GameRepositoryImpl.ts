@@ -1,10 +1,10 @@
-import {GameRepository} from "../../domain/ports/GameRepository";
-import {GameMapper} from "../mappers/GameMapper";
-import {GameId} from "../../domain/entities/GameId";
-import {Game} from "../../domain/entities/GameModel";
-import {GameDto} from "../dtos/GameDto";
-import {ApiClient} from "../../../common/infrastructure/ApiClient";
-import {GameDifficulty} from "../../domain/entities/GameDifficulty";
+import {GameRepository} from '../../domain/ports/GameRepository'
+import {GameMapper} from '../mappers/GameMapper'
+import {GameId} from '../../domain/entities/GameId'
+import {Game} from '../../domain/entities/GameModel'
+import {GameDto} from '../dtos/GameDto'
+import {ApiClient} from '../../../common/infrastructure/ApiClient'
+import {GameDifficulty} from '../../domain/entities/GameDifficulty'
 
 
 export class GameRepositoryImpl implements GameRepository {

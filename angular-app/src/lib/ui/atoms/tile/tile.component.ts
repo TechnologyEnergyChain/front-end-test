@@ -1,6 +1,6 @@
-import {Component, Input} from "@angular/core";
-import {GuessResult} from "@core/guess/domain/entities/GuessResult";
-import {NgClass} from "@angular/common";
+import {Component, Input} from '@angular/core'
+import {GuessResult} from '@core/guess/domain/entities/GuessResult'
+import {NgClass} from '@angular/common'
 
 @Component({
   standalone: true,
