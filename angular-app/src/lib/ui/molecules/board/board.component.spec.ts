@@ -39,9 +39,10 @@ describe('BoardComponent', () => {
     const wrapper = fixture.componentInstance
     useGameStore.ploc.update(fakeState)
 
-    const letter = useGameStore.state?.guesses?.[0]?.word?.split('')[1]
+    const letter = useGameStore.state?.guesses?.[0]?.word?.[1]
     const result = wrapper.getLetter(0, 1)
-    expect(result).toEqual(letter)
+
+    expect(letter).toEqual(result)
   })
 
   it('should return the result "invalid"', async () => {
