@@ -7,6 +7,13 @@ li {
   justify-content: center;
 }
 
+.is-disabled {
+  pointer-events: none;
+}
+.is-disabled:not(.has-letter) {
+  opacity: 0.25;
+}
+
 li:not(.reveled) {
   border: calc(calc(2 / 16) * 1rem) solid var(--c-tone-100);
 }

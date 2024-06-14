@@ -1,6 +1,6 @@
 import {TileComponent} from '@lib/ui/atoms/tile/tile.component'
 import {TestBed} from '@angular/core/testing'
-import {GuessResult} from '@core/guess/domain/entities/GuessResult'
+import {GuessLetterResult} from '@core/guess/domain/entities/GuessLetterResult'
 
 describe('Tile Component', () => {
   beforeEach(async () => {
@@ -30,7 +30,7 @@ describe('Tile Component', () => {
   it('should contain the class reveled-invalid', () => {
     const fixture = TestBed.createComponent(TileComponent)
     const wrapper = fixture.componentInstance
-    wrapper.result = GuessResult.INVALID
+    wrapper.result = GuessLetterResult.INVALID
     fixture.detectChanges()
     const component = fixture.nativeElement as HTMLElement
     expect(component.querySelector('li')?.classList).toContain('reveled-invalid')
@@ -39,7 +39,7 @@ describe('Tile Component', () => {
   it('should contain the class reveled-valid', () => {
     const fixture = TestBed.createComponent(TileComponent)
     const wrapper = fixture.componentInstance
-    wrapper.result = GuessResult.VALID
+    wrapper.result = GuessLetterResult.VALID
     fixture.detectChanges()
     const component = fixture.nativeElement as HTMLElement
     expect(component.querySelector('li')?.classList).toContain('reveled-valid')

@@ -36,7 +36,6 @@ export class SetupKeyboard {
     if ('Enter' === key) {
       try {
         await this.guessStore.ploc.submit()
-        await this.gameStore.ploc.getGame()
         return
       } catch (e) {
         // TODO: Show alert to user

@@ -5,7 +5,7 @@ import {GameGuesses, GameGuessesWordUsedException, isWordOnGuessList} from './Ga
 
 
 export interface GameModel {
-    id: GameId
+    id?: GameId
     status?: GameStatus
     attempts?: number
     wordToGuess?: string
@@ -13,16 +13,16 @@ export interface GameModel {
 }
 
 export class Game implements GameModel {
-    id: GameId
-    attempts?: number
-    guesses?: GameGuesses
+    id?: GameId
+    attempts: number
+    guesses: GameGuesses
     status?: GameStatus
     wordToGuess?: string
 
     constructor({id, status, attempts, wordToGuess, guesses}: GameModel) {
         this.id = id
         this.status = status ?? GameStatus.IN_PROGRESS
-        this.attempts = attempts
+        this.attempts = attempts ?? 0
         this.wordToGuess = wordToGuess
         this.guesses = guesses ?? []
     }

@@ -1,4 +1,4 @@
-import {GameBoard} from "../../../core/game/domain/entities/GameBoard";
+import {GameBoard} from '../../../core/game/domain/entities/GameBoard'
 
 
 describe('The app runs', () => {

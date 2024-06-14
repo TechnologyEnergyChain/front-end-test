@@ -1,15 +1,15 @@
 import {ApiClient} from '../../../common/infrastructure/ApiClient'
-import {GuessDictionaryRepository} from '../../domain/ports/GuessDictionaryRepository'
+import {GuessRepository} from '../../domain/ports/GuessRepository'
 
 
-export class GuessDictionaryRepositoryImpl implements GuessDictionaryRepository {
+export class GuessDictionaryRepositoryImpl implements GuessRepository {
     constructor(
         private readonly apiClient: ApiClient,
     ) {
     }
 
     async search(word: string): Promise<any> {
-        return await this.apiClient.get<any>({url: '/search', params: {word}})
+        return await this.apiClient.get({url: '/search', params: {word}})
     }
 
 }

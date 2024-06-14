@@ -1,5 +1,5 @@
-import {GuessResult} from '../../../guess/domain/entities/GuessResult'
+import {GuessLetterResult} from '../../../guess/domain/entities/GuessLetterResult'
 
 export const fakeGameWon = (result: string) => {
-    return !result.split('').some((number:string) => number === GuessResult.VALID)
+    return !result.split('').some((number:string) => number === GuessLetterResult.VALID)
 }

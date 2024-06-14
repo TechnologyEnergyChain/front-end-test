@@ -3,7 +3,7 @@ import {BoardComponent} from '@lib/ui/molecules/board/board.component'
 import {UseGameStore} from '@src/core/game/presentation/UseGameStore'
 import {DependencyLocator} from '@src/core/common/infrastructure/DependencyLocator'
 import {UseGuessStore} from '@src/core/guess/presentation/UseGuessStore'
-import {GuessResult} from '@core/guess/domain/entities/GuessResult'
+import {GuessLetterResult} from '@core/guess/domain/entities/GuessLetterResult'
 import {GameModelFactory} from '@core/test/factories/game/GameModelFactory'
 import {GuessModelFactory} from '@core/test/factories/guess/GuesModelFactory'
 import {Game} from '@core/game/domain/entities/GameModel'
@@ -51,7 +51,7 @@ describe('BoardComponent', () => {
     useGameStore.ploc.update(fakeState)
 
     const result = wrapper.getResult(1, 1)
-    expect(result).toEqual(GuessResult.INVALID)
+    expect(result).toEqual(GuessLetterResult.INVALID)
   })
 
   it('should return the result "invalid place"', async () => {
@@ -59,7 +59,7 @@ describe('BoardComponent', () => {
     const wrapper = fixture.componentInstance
     useGameStore.ploc.update(fakeState)
     const result = wrapper.getResult(0, 0)
-    expect(result).toEqual(GuessResult.INVALID_PLACE)
+    expect(result).toEqual(GuessLetterResult.INVALID_PLACE)
   })
 
   it('should return the result "valid"', async () => {
@@ -67,7 +67,7 @@ describe('BoardComponent', () => {
     const wrapper = fixture.componentInstance
     useGameStore.ploc.update(fakeState)
     const result = wrapper.getResult(2, 2)
-    expect(result).toEqual(GuessResult.VALID)
+    expect(result).toEqual(GuessLetterResult.VALID)
   })
 
 })

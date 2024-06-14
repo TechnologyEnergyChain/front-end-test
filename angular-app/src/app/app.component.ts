@@ -33,7 +33,6 @@ export class AppComponent extends SetupKeyboard implements OnInit, OnDestroy {
 
   async ngOnInit() {
     await this.gameStore.ploc.start()
-    await this.gameStore.ploc.getGame()
     this.alertService.alertState.subscribe(toast => {
       this.toast.message = toast.message
       this.toast.type = toast.type

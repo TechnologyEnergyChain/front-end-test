@@ -19,15 +19,16 @@ export class Dictionary {
       case 'es':
         return QWERTY.letters.split('')
       case 'gl':
-        return QWERTY.letters.split('').filter((letter: string) => 'y' !== letter)
+        return QWERTY.letters.split('').filter((letter: string) => !'yjkwy'.includes(letter))
     }
   }
 
   private _getLettersPerRow(lang: Lang) {
     switch (lang) {
       case 'es':
-      case 'gl':
         return QWERTY.lettersPerRow
+      case 'gl':
+        return QWERTY.lettersPerRow - 2
     }
   }
 

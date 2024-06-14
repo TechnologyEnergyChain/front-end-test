@@ -1,5 +1,1 @@
-export enum GuessResult {
-    VALID = 2,
-    INVALID = 0,
-    INVALID_PLACE = 1
-}
+export type GuessResult = string

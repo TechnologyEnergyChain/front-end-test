@@ -5,6 +5,10 @@ import {normalizeWord} from '../../common/helpers/normalizeWord'
 import {DataException, UnexpectedException} from '../../common/domain/DataException'
 import {GamePLoC} from '../../game/presentation/GamePLoC'
 import {CheckGuessWordIsInDictionaryUseCase} from '../domain/application/actions/CheckGuessWordIsInDictionaryUseCase'
+import {GuessResult} from '../domain/entities/GuessResult'
+import {WORD_LENGTH} from '../domain/entities/GuessWord'
+import {GuessLetterResult} from '../domain/entities/GuessLetterResult'
+import {GameStatus} from '../../game/domain/entities/GameStatus'
 
 export class GuessPLoC extends Ploc<Guess> {
     constructor(
@@ -28,8 +32,17 @@ export class GuessPLoC extends Ploc<Guess> {
 
         try {
             await this.checkInDictionaryUseCase.execute(this.state.word ?? '')
-            const newGuess = await this.submitGuessUseCase.execute({gameId: this.currentGame.state.id, word: this.state.word ?? ''})
-            this.update(newGuess)
+            const result: GuessResult = await this.submitGuessUseCase.execute({
+                target: this.currentGame.state.wordToGuess ?? '',
+                guess: this.state.word ?? ''
+            })
+
+            this.currentGame.guesses = new Guess({result, word: this.state.word})
+
+            if (result === new Array(WORD_LENGTH).fill(GuessLetterResult.VALID).join('')) {
+                this.currentGame.status = GameStatus.WON
+            }
+            this.update(new Guess({}))
         } catch (e) {
             throw (e as DataException)?.kind ? e : UnexpectedException()
         }

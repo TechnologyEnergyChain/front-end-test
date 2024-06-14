@@ -6,7 +6,7 @@ export enum GameIdException {
     UNDEFINED = 'GuessWordIsNotValidException'
 }
 
-export function isGameIdDefined(id: GameId) {
+export function isGameIdDefined(id?: GameId) {
     return !!id
 }
 

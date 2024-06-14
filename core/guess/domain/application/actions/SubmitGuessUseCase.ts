@@ -1,14 +1,15 @@
 import {Command} from '../../../../common/domain/Command'
-import {GuessRepository} from '../../ports/GuessRepository'
-import {GameId} from '../../../../game/domain/entities/GameId'
-import {Guess} from '../../entities/GuessModel'
+import {GameDailyWord} from '../../../../game/domain/entities/GameDailyWord'
+import {GuessWord} from '../../entities/GuessWord'
+import {GuessDictionaryService} from '../services/GuessDictionaryService'
+import {GuessResult} from '../../entities/GuessResult'
 
 
 export class SubmitGuessUseCase implements Command {
-    constructor(private readonly repository: GuessRepository) {
+    constructor(private readonly service: GuessDictionaryService) {
     }
 
-    execute({gameId, word}: { gameId: GameId, word: string }): Promise<Guess> {
-        return this.repository.submitGuess(gameId, word)
+    execute({target, guess}: { target: GameDailyWord, guess: GuessWord }): Promise<GuessResult> {
+        return this.service.validate(target, guess)
     }
 }

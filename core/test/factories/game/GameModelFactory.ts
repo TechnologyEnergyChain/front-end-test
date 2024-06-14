@@ -14,7 +14,7 @@ export class GameModelFactory extends Factory<Game> {
         guesses: []
     }
 
-    create(extra?: {}): Game {
+    create(extra?: object): Game {
         return new Game({...this.data, ...extra})
     }
 

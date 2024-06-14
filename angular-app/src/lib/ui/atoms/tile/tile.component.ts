@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core'
-import {GuessResult} from '@core/guess/domain/entities/GuessResult'
+import {GuessLetterResult} from '@core/guess/domain/entities/GuessLetterResult'
 import {NgClass} from '@angular/common'
 
 @Component({
@@ -14,14 +14,16 @@ import {NgClass} from '@angular/common'
 })
 export class TileComponent {
   @Input() letter?: string
-  @Input() result?: GuessResult
+  @Input() result?: GuessLetterResult
+  @Input() disabled?: boolean
 
   setTileCssClass(): Record<string, boolean> {
     return {
       'has-letter': !!this.letter,
-      'reveled reveled-invalid': this.result === GuessResult.INVALID,
-      'reveled reveled-invalid-place': this.result === GuessResult.INVALID_PLACE,
-      'reveled reveled-valid': this.result === GuessResult.VALID,
+      'reveled reveled-invalid': this.result === GuessLetterResult.INVALID,
+      'reveled reveled-invalid-place': this.result === GuessLetterResult.INVALID_PLACE,
+      'reveled reveled-valid': this.result === GuessLetterResult.VALID,
+      'is-disabled': !!this.disabled
     }
   }
 }

@@ -8,7 +8,7 @@ export class GetGameUseCase implements Command {
     constructor(private readonly repository: GameRepository) {
     }
 
-    execute(id: GameId): Promise<Game> {
-        return this.repository.getGame(id)
+    execute(): Promise<Game> {
+        return this.repository.getDailyWord()
     }
 }

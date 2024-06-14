@@ -1,26 +1,20 @@
 import {Mapper} from '../../../common/infrastructure/Mapper'
 import {Game} from '../../domain/entities/GameModel'
 import {GameDto} from '../dtos/GameDto'
-import {GuessMapper} from '../../../guess/infrastructure/mappers/GuessMapper'
 import {normalizeWord} from '../../../common/helpers/normalizeWord'
+import {GameStatus} from '../../domain/entities/GameStatus'
 
-export class GameMapper implements Mapper<Game, GameDto> {
-    constructor(private readonly guessMapper: GuessMapper) {
-    }
-
-    toApi(model: Game): GameDto {
-        return {} as GameDto
-    }
+export class GameMapper implements Pick<Mapper<Game, GameDto>, 'toDomain'> {
 
     toDomain(dto: GameDto): Game {
-        const {gameId: id, status, guesses, wordToGuess, attemptsLeft: attempts} = dto
+        const {word} = dto
 
         return new Game({
-            id,
-            status: 'string' === typeof status ? parseInt(status) : status,
-            attempts,
-            wordToGuess: normalizeWord(wordToGuess),
-            guesses: guesses.map((guess) => (this.guessMapper.toDomain(guess)))
+            id: crypto.randomUUID(),
+            status: GameStatus.IN_PROGRESS,
+            attempts: 0,
+            wordToGuess: normalizeWord(word),
+            guesses: []
         })
     }
 

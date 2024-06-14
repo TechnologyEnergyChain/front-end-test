@@ -1,10 +1,9 @@
 import {ApiClient} from '@core/common/infrastructure/ApiClient'
 import {ApiResponse} from '@core/common/domain/ApiResponse'
 
-// TODO: Improve ApiClient implementation
-export abstract class ApiClientImpl implements ApiClient {
+export class ApiClientImpl implements ApiClient {
 
-  protected constructor(readonly baseUrl: string) {
+  constructor(readonly baseUrl: string) {
   }
 
   delete<T>({url, params}: { url: string; params?: any }): Promise<ApiResponse<T>> {
