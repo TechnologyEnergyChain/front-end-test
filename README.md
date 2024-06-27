@@ -78,15 +78,15 @@ Para las pruebas se asumirá que la palabra secreta es "SOLAR".
 ### Requisitos básicos
 
 La aplicación debe cumplir con los siguientes **requisitos básicos:**
-- [ ]  Cada partida tendrá un máximo de 6 intentos.
-- [ ]  Cada palabra tendrá 5 letras.
-- [ ]  No se permite introducir por duplicado la misma palabra.
+- [x]  Cada partida tendrá un máximo de 6 intentos.
+- [x]  Cada palabra tendrá 5 letras.
+- [x]  No se permite introducir por duplicado la misma palabra.
 
 > [!TIP]
 > Antes de pasar a los requisitos opcionales, asegúrese de tener el código de su solución como le gustaría. :eye_speech_bubble:
 
 ### Requisitos opcionales
 Además, como requisitos **opcionales**:
-- [ ] Implementar modo claro y modo oscuro.
-- [ ] No se permiten palabras que no existen en la RAE (Integración con servicio externo mockeado).
-- [ ] Añadir un teclado virtual en la pantalla principal.
+- [x] Implementar modo claro y modo oscuro.
+- [x] No se permiten palabras que no existen en la RAE (Integración con servicio externo mockeado).
+- [x] Añadir un teclado virtual en la pantalla principal.

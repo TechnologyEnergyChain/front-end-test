@@ -1,0 +1,5 @@
+<div *ngIf="toast?.message"
+     [ngClass]="{'alert-success': toast?.type === 'success', 'alert-info': toast?.type === 'info', 'alert-warning': toast?.type === 'warning', 'alert-danger': toast?.type === 'danger'}"
+     class="alert">
+  {{ toast?.message }}
+</div>

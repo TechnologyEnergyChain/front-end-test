@@ -1,0 +1,11 @@
+ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  list-style: none;
+  width: min-content;
+  gap: var(--s-16px) var(--s-4px);
+
+  margin: auto;
+  padding: 0;
+}
